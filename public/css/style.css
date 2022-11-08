@@ -1,0 +1,385 @@
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    
+    background: #B39CD0;
+
+}
+
+.page-container {
+    height: 100%;
+    width: 100%;
+
+    background: #B39CD0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.content-container {
+    height: 70%;
+    width: 100%;
+
+    background: #B39CD0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    border: solid;
+}
+
+
+#welcome-message {
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 110px;
+    text-align: center;
+
+    color: #FBEAFF;
+
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+#description {
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 66px;
+    text-align: center;
+
+    color: #FBEAFF;
+
+    margin-top: 0%;
+    margin-top: -2%;
+}
+
+.picture {
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: solid;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.forms-container {
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    border: solid;
+}
+
+#form-login {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    width: 50%;
+    height: 60%;
+
+    background: #00C9A7;
+    border-radius: 45px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    border: solid;
+}
+
+.input-container {
+    width: 100%;
+    height: 60%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+
+    border: solid;
+}
+
+#login-title {
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 49px;
+
+    color: #FBEAFF;
+
+    margin: 0%;
+
+    border: solid;
+}
+
+#username-title {
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 49px;
+
+    color: #FBEAFF;
+
+    margin: 0%;
+    margin-left: -40%;
+}
+
+#email-input {
+    width: 75%;
+    height: 40%;
+
+    background: #FBEAFF;
+    border-radius: 45px;
+
+    border: none;
+
+    padding-left: 5%;
+}
+
+#password-title {
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 49px;
+
+    color: #FBEAFF;
+
+    margin: 0%;
+    margin-left: -40%;
+
+}
+
+#password-input {
+    width: 75%;
+    height: 40%; 
+
+    background: #FBEAFF;
+    border-radius: 45px;
+
+    border: none;
+
+    padding-left: 5%;
+}
+
+#login-button {
+    width: 55%;
+    height: 35%;
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 49px;
+    color:#FBEAFF;
+
+    background: #845EC2;
+    border-radius: 45px;
+    
+    border-width: 0px;
+
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.register-container {
+    width: 50%;
+    height: 30%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    border: solid;
+
+    margin: 5%;
+}
+
+#account-question {
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 49px;
+
+    text-align: center;
+
+    color: #FBEAFF;
+
+    margin-bottom: 0%;
+
+    overflow-wrap: anywhere;
+}
+
+#register-button {
+    width: 100%;
+    height: 70%;
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 62px;
+    line-height: 88px;
+    color:#FBEAFF;
+
+    
+    background: #845EC2;
+    border-radius: 45px;
+    border-width: 0px;
+    
+    border: none;
+
+    margin-bottom: 5%;
+}
+
+@media only screen and (max-device-width: 700px) {
+
+    .picture {
+        display: none;
+    }    
+
+    .forms-container {
+        width: 100%;
+    }
+
+    .login-container {
+        width: 75%;
+    }
+
+    .register-container {
+        width: 75%;
+    }
+
+}
+
+/* register page below */
+
+
+.base-container {
+    height: 100%;
+    width: 100%;
+
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 5%;
+
+    display: flex;
+    flex-direction: row;
+    
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+
+    background: #B39CD0;
+
+    border: solid;
+}
+
+#register-form {
+    height: 75%;
+    width: 20%;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #00C9A7;
+    border-radius: 45px;
+
+    border: solid;
+}
+
+#woman {
+    height: 75%;
+
+    border: solid;
+}
+
+
+#register-email {
+    margin: 2%
+}
+
+#register-password {
+    margin: 2%;
+}
+
+#shoes-section-title {
+    background: #845EC2;
+    border-radius: 45px;
+}
+
+.clothing-section {
+    display: flex;
+    flex-direction: column;
+}
+
+#shoes-title.clothing-section-title {
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 44px;
+   
+    color: #FBEAFF;
+
+}
+
+.image-space {
+    width: 100%;
+    height: 100%;
+
+    background: #FBEAFF;
+    border-radius: 45px;
+}
