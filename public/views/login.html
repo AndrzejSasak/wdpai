@@ -22,14 +22,16 @@
             <div class="forms-container">
                 <div class="login-container">
                     <form id="form-login">
-                        <p id="login-title">Login</p>
+
+                        <label class="form-title">Login</label>
+
                         <div id="username-container" class="input-container">
-                            <p id="username-title">Username</p>
+                            <label id="username-title">Username</label>
                             <input id="email-input" name="email" type="text">
                         </div>
 
                         <div id="password-container" class="input-container">
-                            <p id="password-title">Password</p>
+                            <label id="password-title">Password</label>
                             <input id="password-input" name="password" type="password">
                         </div>
                         
@@ -39,9 +41,9 @@
     
                 <div class="register-container">
                     <p id="account-question">Don't have an account?</p>
-                    <button id="register-button">
-                        <span >Register</span>
-                    </button>
+                    <form id="register-redirect-form" action="register.html" method="get">
+                        <button id="register-redirect-button">Register</button>
+                    </form>
                 </div>          
             </div>
             

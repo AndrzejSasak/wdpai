@@ -9,14 +9,25 @@
 
     <div class="base-container">
 
-        <form id="register-form">
-            <p>Register</p>
-            <p>Username</p>
-            <input id="register-email" name="email" type="text" placeholder="email@email.com">
-            <p>Password</p>
-            <input id="register-password" name="password" type="password" placeholder="password">
-            <button class="login-button">Register</button>
-        </form>
+        <div class="register-form-container">
+            <form id="form-register">
+                <p id="register-title" class="form-title">Register</p>
+    
+                <div id="username-container" class="input-container">
+                    <p id="username-title">Username</p>
+                    <input id="email-input" name="email" type="text">
+                </div>
+    
+                <div id="password-container" class="input-container">
+                    <p id="password-title">Password</p>
+                    <input id="password-input" name="password" type="password">
+                </div>
+    
+                <button id="register-button">Register</button>
+    
+            </form>
+        </div>
+        
             
         <img id="woman" src="../img/woman.svg">
         

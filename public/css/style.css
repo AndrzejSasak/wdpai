@@ -141,7 +141,11 @@ img {
     border: solid;
 }
 
-#login-title {
+#username-container {
+    width: 100%;
+}
+
+.form-title {
     font-family: 'Source Serif 4';
     font-style: normal;
     font-weight: 400;
@@ -150,9 +154,16 @@ img {
 
     color: #FBEAFF;
 
+    text-align: center;
+
     margin: 0%;
 
     border: solid;
+}
+
+#register-title {
+    font-size: 64px;
+    line-height: 88px;
 }
 
 #username-title {
@@ -226,6 +237,7 @@ img {
     margin-bottom: 5%;
     margin-left: 20%;
     margin-right: 20%;
+
 }
 
 .register-container {
@@ -255,14 +267,20 @@ img {
 
     color: #FBEAFF;
 
-    margin-bottom: 0%;
 
-    overflow-wrap: anywhere;
+    border: solid;    
 }
 
-#register-button {
+#register-redirect-form {
+    height: 50%;
     width: 100%;
-    height: 70%;
+
+    border: solid;
+}
+
+#register-redirect-button {
+    width: 100%;
+    height: 100%;
 
     font-family: 'Source Serif 4';
     font-style: normal;
@@ -278,7 +296,7 @@ img {
     
     border: none;
 
-    margin-bottom: 5%;
+    /* margin-bottom: 5%; */
 }
 
 @media only screen and (max-device-width: 700px) {
@@ -302,22 +320,21 @@ img {
 }
 
 /* register page below */
+h1 {
+    text-align: center;
+}
+
 
 
 .base-container {
     height: 100%;
     width: 100%;
 
-    padding-top: 5%;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-bottom: 5%;
-
     display: flex;
     flex-direction: row;
     
     justify-items: center;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 
     background: #B39CD0;
@@ -325,14 +342,15 @@ img {
     border: solid;
 }
 
-#register-form {
+#form-register {
     height: 75%;
-    width: 20%;
-    padding-left: 5%;
-    padding-right: 5%;
+    width: 55%;
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
 
     background: #00C9A7;
     border-radius: 45px;
@@ -340,46 +358,263 @@ img {
     border: solid;
 }
 
+.register-form-container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    border: solid;
+}
+
 #woman {
-    height: 75%;
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     border: solid;
 }
 
 
-#register-email {
-    margin: 2%
-}
+#register-button {
 
-#register-password {
-    margin: 2%;
-}
+    width: 75%;
+    height: 30%;
 
-#shoes-section-title {
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 49px;
+    color:#FBEAFF;
+
     background: #845EC2;
     border-radius: 45px;
+    
+    border-width: 0px;
+
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+
+
+}
+
+@media only screen and (max-device-width: 1000px) {
+
+    #woman {
+        display: none;
+    }
+
+    #email-input {
+        font-size: 24px;
+        line-height: 33px;
+    }
+
+    #form-register {
+        width: 90%;
+    }
+
+    #register-button {
+        font-size: 75px;
+        line-height: 60px;
+    }
+
+}
+
+/* wardrobe page */
+.main-container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+
+    margin-left: 15%;
+    margin-bottom: 5%;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: auto;
+}
+
+.sidenav {
+    width: 15%;
+    height: 100%;
+    position: fixed;
+
+    background: #845EC2; 
+    padding-top: 2%;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.sidenav a {
+    display: block;
+    background: #00C9A7;
+    text-decoration: none;
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    margin: 5%;
+    border-radius: 45px;
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 33px;
+/* identical to box height */
+
+    color: #FBEAFF;
+}
+
+.nav-label {
+    margin: 5%;
+    margin-bottom: 45%;
+    text-align: center;
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 33px;
+
+    color: #FBEAFF;
+
+}
+
+.util-button {
+    width: 15%;
+    height: 10%;
+    
+    background: #00C9A7;
+    border-radius: 45px;
+    border: none;
+
+    margin-top: 2%;
+    margin-left: 5%;
+
+    padding-top: 1%;
+    padding-bottom: 1%;
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 33px;
+
+    color: #FBEAFF;
+
 }
 
 .clothing-section {
     display: flex;
     flex-direction: column;
+    margin-bottom: 2%;
 }
 
-#shoes-title.clothing-section-title {
+.clothing-section-label {
+    width: 20%;
+
+    background: #845EC2;
+    border-radius: 45px;
+
     font-family: 'Source Serif 4';
     font-style: normal;
     font-weight: 400;
     font-size: 32px;
     line-height: 44px;
-   
+
+    padding: 1%;
+    padding-left: 2%;
+    
+    margin-left: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+
+
     color: #FBEAFF;
 
 }
 
 .image-space {
+    width: 90%;
+    min-height: 10vh;
+    margin-left: 5%;
+    margin-right: 5%;
+    background: #FBEAFF;
+    border-radius: 45px;
+
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+
+.prompt {
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 55px;
+
+    color: #FBEAFF;
+    text-align: left;
+    margin-left: 5%;
+}
+
+#confirm-outfit-button {
+    margin-bottom: 3%;
+}
+
+#randomizer-main {
+    align-items: center;
+    margin: 0%;   
+}
+
+hr {
     width: 100%;
-    height: 100%;
+    height: 2px;
+
+    margin-top: 2%;
+    margin-bottom: 0;
+    border: 0;
+
+    background-color: #000000;
+}
+
+.outfit {
+    width: 85%;
+    display: grid;
+    margin-left: 20%;
+    grid-template-columns: repeat(auto-fill,minmax(30%, 30%));
+}
+
+.img-space {
+    min-width: 10vh;
+    min-height: 10vh;
 
     background: #FBEAFF;
     border-radius: 45px;
+
 }
