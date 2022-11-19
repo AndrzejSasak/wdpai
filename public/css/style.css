@@ -587,9 +587,10 @@ h1 {
     margin-bottom: 3%;
 }
 
-#randomizer-main {
+#outfits-main {
     align-items: center;
-    margin: 0%;   
+    margin-left: 15%; 
+    margin-bottom: 5%; 
 }
 
 hr {
@@ -604,15 +605,31 @@ hr {
 }
 
 .outfit {
-    width: 85%;
+    width: 90%;
     display: grid;
-    margin-left: 20%;
-    grid-template-columns: repeat(auto-fill,minmax(30%, 30%));
+    /* grid-template-columns: repeat(auto-fill,minmax(5%, 35%)); */
+    grid-template-columns: repeat(auto-fill, minmax(5%, 45%));
+    column-gap: 5%;
+    row-gap: 5%;
+    
+
 }
 
-.img-space {
+.outfit-part-label {
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 55px;
+
+    color: #000000;
+
+    padding-left: 5%;
+}
+
+.outfit-part {
     min-width: 10vh;
-    min-height: 10vh;
+    min-height: 50vh;
 
     background: #FBEAFF;
     border-radius: 45px;
