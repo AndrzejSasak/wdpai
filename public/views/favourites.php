@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <title>Favourites</title>
 </head>
 
@@ -12,9 +12,9 @@
             <label class="nav-label">Your Virtual Wardrobe</label>
     
             <a href="#">Wardrobe</a>
-            <a href="./randomizer.html">Outfit randomizer</a>
-            <a href="./picker.html">Outfit picker</a>
-            <a href="./favourites.html">Favourite outfits</a>
+            <a href="./randomizer">Outfit randomizer</a>
+            <a href="./picker">Outfit picker</a>
+            <a href="./favourites">Favourite outfits</a>
         </nav>
     
         <div id="outfits-main" class="main">

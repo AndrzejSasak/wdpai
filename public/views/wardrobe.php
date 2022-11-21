@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <title>Picker</title>
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <title>Wardrobe</title>
+
 </head>
 
 <body>
-
+    
     <div class="main-container">
         <nav class="sidenav">
             <label class="nav-label">Your Virtual Wardrobe</label>
     
             <a href="#">Wardrobe</a>
-            <a href="./randomizer.html">Outfit randomizer</a>
-            <a href="./picker.html">Outfit picker</a>
-            <a href="./favourites.html">Favourite outfits</a>
+            <a href="./randomizer">Outfit randomizer</a>
+            <a href="./picker">Outfit picker</a>
+            <a href="./favourites">Favourite outfits</a>
         </nav>
     
         <div class="main">
-
-            <h1 class="prompt">Choose one of each piece of clothing:</h1>
+    
+            <button id="add-clothes-button" class="util-button">Add clothes</button>
 
             <section class="clothing-section">
                 <label class="clothing-section-label">Shirts</label>
@@ -64,11 +65,14 @@
                     
                 </div>
             </section>
-
-            <button id="confirm-outfit-button" class="util-button">Confirm outfit</button>
     
         </div>
 
     </div>
+  
+    
+
+    
+
     
 </body>

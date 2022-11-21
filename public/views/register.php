@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <title>Register Page</title>
 
 </head>
@@ -29,7 +29,7 @@
         </div>
         
             
-        <img id="woman" src="../img/woman.svg">
+        <img id="woman" src="public/img/woman.svg">
         
 
     </div>
