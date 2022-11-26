@@ -1,0 +1,49 @@
+form {
+    width: 100%;
+    height: 70%;
+
+
+}
+
+main > a {
+    width: 20%;
+    height: 30%;
+
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 5%;
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vw;
+    line-height: 2vw;
+
+    color:#FBEAFF;
+    text-decoration: none;
+    text-align: center;
+
+    background: #00C9A7;
+    border-radius: 2vw;
+    border-width: 0px;
+}
+
+@media only screen and (max-device-width: 700px) {
+
+    .picture {
+        display: none;
+    }
+
+    .forms-container {
+        width: 100%;
+    }
+
+    .login-container {
+        width: 75%;
+    }
+
+    .register-container {
+        width: 75%;
+    }
+
+}

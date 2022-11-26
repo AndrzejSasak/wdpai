@@ -1,36 +1,53 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="public/css/register.css">
     <title>Register Page</title>
 
 </head>
 
 <body>
 
-    <div class="base-container">
+    <div class="page-container">
 
         <div class="register-form-container">
-            <form id="form-register">
-                <p id="register-title" class="form-title">Register</p>
-    
-                <div id="username-container" class="input-container">
-                    <p id="username-title">Username</p>
-                    <input id="email-input" name="email" type="text">
+            <form class="register-form">
+
+                <div class="register-label-container">
+                    <h1>Register</h1>
                 </div>
-    
-                <div id="password-container" class="input-container">
-                    <p id="password-title">Password</p>
-                    <input id="password-input" name="password" type="password">
+
+                <div class="input-container">
+                    <label>Username</label>
+                    <input name="email" type="text">
                 </div>
-    
-                <button id="register-button">Register</button>
-    
+
+                <div class="input-container">
+                    <label>Password</label>
+                    <input name="password" type="password">
+                </div>
+
+                <div class="messages">
+                    <?php if(isset($messages)) {
+                        foreach ($messages as $message) {
+                            echo $message;
+                        }
+                    }
+                    ?>
+                </div>
+
+                <div class="register-button-container">
+                    <button class="register-button">Register</button>
+                </div>
+
             </form>
         </div>
-        
-            
-        <img id="woman" src="public/img/woman.svg">
-        
+
+        <div class="picture">
+            <img src="public/img/woman.svg">
+        </div>
+
+
 
     </div>
 

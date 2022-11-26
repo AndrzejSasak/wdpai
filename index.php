@@ -1,15 +1,16 @@
 <?php
 
-require 'Routing.php';
+require 'Router.php';
 
 $path = trim($_SERVER['REQUEST_URI'], '/');
 $path = parse_url($path, PHP_URL_PATH);
 
-Routing::get('index', 'DefaultController');
-Routing::get('register', 'DefaultController');
-Routing::get('wardrobe', 'DefaultController');
-Routing::get('randomizer', 'DefaultController');
-Routing::get('picker', 'DefaultController');
-Routing::get('favourites', 'DefaultController');
-Routing::post('login', 'SecurityController');
-Routing::run($path);
+Router::get('index', 'DefaultController');
+Router::get('register', 'DefaultController');
+Router::get('wardrobe', 'DefaultController');
+Router::get('randomizer', 'DefaultController');
+Router::get('picker', 'DefaultController');
+Router::get('favourites', 'DefaultController');
+Router::post('login', 'SecurityController');
+Router::post('addClothing', 'ClothingController');
+Router::run($path);

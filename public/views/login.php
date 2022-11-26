@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="public/css/login.css">
     <title>Login Page</title>
-
 </head>
 
 <body>
     <div class="page-container">
 
+        <section class="titles">
+            <h1>Welcome to Your Virtual Wardrobe!</h1>
+            <h2>A place for all your clothes and accessories</h2>
+        </section>
 
-        <h1 id="welcome-message">Welcome to Your Virtual Wardrobe!</h1>
-        <h2 id="description">A place for all your clothes and accessories.</h2>    
-        
 
         <div class="content-container">
 
             <div class="picture">
                 <img id="man" src="public/img/mirror_man.svg">
             </div>
-           
-            <div class="forms-container">
-                <div class="login-container">
-                    <form id="form-login" action="login" method="POST">
 
-                        <label class="form-title">Login</label>
+            <div class="forms">
+                <section class="login-container">
+                    <form class="login-form" action="login" method="POST">
+
+                        <div class="login-label-container">
+                            <h3>Login</h3>
+                        </div>
+
+                        <div class="input-container">
+                            <label>Username</label>
+                            <input name="email" type="text">
+                        </div>
+
+                        <div class="input-container">
+                            <label>Password</label>
+                            <input name="password" type="password">
+                        </div>
 
                         <div class="messages">
                             <?php if(isset($messages)) {
@@ -34,26 +47,18 @@
                             ?>
                         </div>
 
-                        <div id="username-container" class="input-container">
-                            <label id="username-title">Username</label>
-                            <input id="email-input" name="email" type="text">
+                        <div class="login-button-container">
+                            <button class="login-button" type="submit">Login</button>
                         </div>
-
-                        <div id="password-container" class="input-container">
-                            <label id="password-title">Password</label>
-                            <input id="password-input" name="password" type="password">
-                        </div>
-                        
-                        <button id="login-button" type="submit">Login</button>
                     </form>
-                </div>
+                </section>
     
-                <div class="register-container">
-                    <p id="account-question">Don't have an account?</p>
+                <section class="register-container">
+                    <label class="account-question">Don't have an account?</label>
                     <form id="register-redirect-form" action="register" method="get">
                         <button id="register-redirect-button">Register</button>
                     </form>
-                </div>          
+                </section>
             </div>
             
         </div>

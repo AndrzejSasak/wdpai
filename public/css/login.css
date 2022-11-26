@@ -1,0 +1,216 @@
+h1 {
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 4vw;
+    line-height: 4vw;
+    text-align: center;
+
+    color: #FBEAFF;
+
+    margin: 0;
+}
+
+h2 {
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vw;
+    line-height: 2vw;
+    text-align: center;
+
+    color: #FBEAFF;
+
+    margin: 0;
+}
+
+h3 {
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.5vw;
+    line-height: 3vw;
+
+    color: #FBEAFF;
+
+    text-align: center;
+
+    margin: 0;
+    /*border: solid;*/
+}
+
+label {
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vw;
+    line-height: 2vw;
+
+    color: #FBEAFF;
+
+    margin: 1%;
+    margin-left: -50%;
+}
+
+label.account-question {
+    font-size: 2vw;
+    line-height: 2.5vw;
+    margin: 0;
+}
+
+.login-label-container {
+    width: 100%;
+    height: 10%;
+    /*border: solid;*/
+}
+
+.messages {
+    width: 100%;
+    height: 10%;
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5vw;
+    line-height: 1.5vw;
+
+    color: darkred;
+}
+
+.login-button-container {
+    width: 100%;
+    height: 20%;
+    /*border: solid;*/
+}
+
+#register-redirect-form {
+    height: 50%;
+    width: 100%;
+
+    /*border: solid;*/
+}
+
+#register-redirect-button {
+    width: 100%;
+    height: 100%;
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3vw;
+    line-height: 3vw;
+    color:#FBEAFF;
+
+
+    background: #845EC2;
+    border-radius: 2vw;
+    border-width: 0px;
+
+    /*border: solid;*/
+
+    margin-bottom: 5%;
+}
+
+.login-button {
+    width: 55%;
+    height: 75%;
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vw;
+    line-height: 2vw;
+    color:#FBEAFF;
+
+    background: #845EC2;
+    border-radius: 2vw;
+
+    border-width: 0px;
+    cursor: pointer;
+}
+
+input {
+    width: 80%;
+    height: 40%;
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vw;
+    line-height: 2vw;
+
+    background: #FBEAFF;
+    border-radius: 2vw;
+
+    border: none;
+
+    padding-left: 4%;
+}
+
+section, .forms, .login-form, .input-container, .login-button-container, .messages {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    /*border: solid;*/
+}
+
+.messages {
+
+}
+
+section.titles {
+    height: 20%;
+    width: 100%;
+}
+
+section.login-container {
+    width: 75%;
+    height: 60%;
+
+    background: #00C9A7;
+    border-radius: 2vw;
+}
+
+section.register-container {
+    width: 75%;
+    height: 30%;
+    margin: 5%;
+}
+
+.forms {
+    width: 50%;
+    height: 100%;
+}
+
+.login-form {
+    width: 100%;
+    height: 100%;
+}
+
+.input-container {
+    width: 100%;
+    height: 30%;
+}
+
+@media only screen and (max-device-width: 700px) {
+
+    .picture {
+        display: none;
+    }
+
+    .forms {
+        width: 100%;
+    }
+
+    .login-container {
+        width: 100%;
+    }
+
+    .register-container {
+        width: 100%;
+    }
+
+}

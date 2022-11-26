@@ -1,0 +1,163 @@
+h1 {
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3vw;
+    line-height: 3vw;
+    color:#FBEAFF;
+}
+
+.input-container {
+    width: 100%;
+    height: 30%;
+}
+
+input {
+    width: 80%;
+    height: 40%;
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vw;
+    line-height: 2vw;
+
+    background: #FBEAFF;
+    border-radius: 2vw;
+
+    border: none;
+
+    padding-left: 4%;
+}
+
+.page-container {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-items: center;
+    justify-content: space-around;
+    align-items: center;
+
+    background: #B39CD0;
+
+    /*border: solid;*/
+}
+
+.register-form-container,
+.register-form,
+.register-button-container,
+.input-container,
+.messages {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    /*border: solid;*/
+}
+
+.messages {
+    width: 100%;
+    height: 10%;
+    /*border: solid;*/
+}
+
+.input-container {
+    width: 100%;
+    height: 20%;
+}
+
+.register-form-container {
+    width: 50%;
+    height: 100%;
+
+    /*border: solid;*/
+
+}
+
+.register-form {
+    height: 80%;
+    width: 75%;
+
+    background: #00C9A7;
+    border-radius: 45px;
+
+    /*border: solid;*/
+}
+
+
+.register-button {
+
+    width: 75%;
+    height: 50%;
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vw;
+    line-height: 2vw;
+    color:#FBEAFF;
+
+    background: #845EC2;
+    border-radius: 45px;
+
+    border-width: 0px;
+
+    /*border: solid;*/
+
+}
+
+.register-button-container {
+    width: 100%;
+    height: 20%;
+}
+
+.register-label-container {
+    width: 100%;
+    height: 15%;
+
+    /*border: solid;*/
+
+}
+
+label {
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vw;
+    line-height: 2vw;
+
+    color: #FBEAFF;
+
+    margin: 1%;
+    margin-left: -50%;
+
+    /*border: solid;*/
+}
+
+
+@media only screen and (max-device-width: 1000px) {
+
+    #woman {
+        display: none;
+    }
+
+    #email-input {
+        font-size: 24px;
+        line-height: 33px;
+    }
+
+    #form-register {
+        width: 90%;
+    }
+
+    #register-button {
+        font-size: 75px;
+        line-height: 60px;
+    }
+
+}
