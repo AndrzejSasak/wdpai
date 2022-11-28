@@ -106,6 +106,7 @@ label.account-question {
     border-radius: 2vw;
     border-width: 0px;
 
+    cursor: pointer;
     /*border: solid;*/
 
     margin-bottom: 5%;

@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="register-button-container">
-                    <button class="register-button">Register</button>
+                    <button class="register-button" type="submit">Register</button>
                 </div>
 
             </form>
