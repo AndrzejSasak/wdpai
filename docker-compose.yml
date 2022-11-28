@@ -19,10 +19,10 @@ services:
     volumes:
       - .:/app/
 
-  db:
+  postgres:
     image: postgres:latest
     restart: always
-    container_name: db
+    container_name: postgres
     build:
       context: .
       dockerfile: docker/postgres/Dockerfile
