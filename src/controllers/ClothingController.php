@@ -2,6 +2,7 @@
 
 require_once 'AppController.php';
 require_once __DIR__.'/../models/Clothing.php';
+require_once __DIR__.'/../repository/ClothingRepository.php';
 
 class ClothingController extends AppController
 {
@@ -11,6 +12,14 @@ class ClothingController extends AppController
     const UPLOAD_DIRECTORY = '/../public/uploads/';
 
     private $messages = [];
+    private $clothingRepository;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->clothingRepository = new ClothingRepository();
+    }
+
 
     public function addClothing()
     {
@@ -21,7 +30,9 @@ class ClothingController extends AppController
                 $_FILES['file']['tmp_name'],
                 dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
             );
+
             $clothing = new Clothing($_POST['name'], $_POST['category'], $_FILES['file']['name']);
+            $this->clothingRepository->addClothing($clothing);
 
             $this->messages[] = 'Picture added';
             $this->render('add-clothing', ['messages' => $this->messages, 'clothing' => $clothing]);
