@@ -18,3 +18,19 @@ services:
       dockerfile: docker/php/Dockerfile
     volumes:
       - .:/app/
+
+  db:
+    image: postgres:latest
+    restart: always
+    container_name: db
+    build:
+      context: .
+      dockerfile: docker/postgres/Dockerfile
+    ports:
+      - '5433:5432'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - .:/app/
