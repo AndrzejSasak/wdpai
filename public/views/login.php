@@ -55,8 +55,8 @@
     
                 <section class="register-container">
                     <label class="account-question">Don't have an account?</label>
-                    <form id="register-redirect-form" action="register" method="get">
-                        <button id="register-redirect-button">Register</button>
+                    <form id="register-redirect-form" action="registerUser" method="post">
+                        <button id="register-redirect-button" name="register">Register</button>
                     </form>
                 </section>
             </div>

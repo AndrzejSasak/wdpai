@@ -8,7 +8,7 @@ class DefaultController extends AppController {
         $this->render('login');
     }
 
-    public function register() {
+    public function registerUser() {
         $this->render('register');
     }
 

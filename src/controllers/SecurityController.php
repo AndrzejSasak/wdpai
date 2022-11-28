@@ -38,5 +38,33 @@ class SecurityController extends AppController
         header("Location: {$url}/wardrobe");
     }
 
+    public function register()
+    {
+        $userRepository = new UserRepository();
+
+        if(!$this->isPost()) {
+            return $this->register('register');
+        }
+
+        $email = $_POST["email"];
+        $user = $userRepository->getUser($email);
+
+        if($user) {
+            return $this->render('register', ['messages' => ['User with this email already exists']]);
+        }
+
+        $password = $_POST['password'];
+        $name = $_POST['name'];
+        $surname = $_POST['surname'];
+        $user = User::makeUserWithoutId($email, $password, $name, $surname);
+        $userRepository->createUser($user);
+
+        $userRegistered = $userRepository->getUser($email);
+        session_start();
+        $_SESSION['id_user'] = $user->getId();
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/wardrobe");
+    }
+
 
 }

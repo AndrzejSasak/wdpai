@@ -9,13 +9,31 @@ class User
     private $name;
     private $surname;
 
-    public function __construct($id, $email, $password, $name, $surname)
+    private function __construct()
     {
-        $this->id = $id;
-        $this->email = $email;
-        $this->password = $password;
-        $this->name = $name;
-        $this->surname = $surname;
+    }
+
+    public static function makeUserWithId($id, $email, $password, $name, $surname): User
+    {
+        $user = new User();
+        $user->setId($id);
+        $user->setEmail($email);
+        $user->setPassword($password);
+        $user->setName($name);
+        $user->setSurname($surname);
+
+        return $user;
+    }
+
+    public static function makeUserWithoutId($email, $password, $name, $surname): User
+    {
+        $user = new User();
+        $user->setEmail($email);
+        $user->setPassword($password);
+        $user->setName($name);
+        $user->setSurname($surname);
+
+        return $user;
     }
 
     public function getId()

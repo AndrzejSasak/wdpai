@@ -11,10 +11,20 @@
     <div class="page-container">
 
         <div class="register-form-container">
-            <form class="register-form">
+            <form class="register-form" action="register" method="POST">
 
                 <div class="register-label-container">
                     <h1>Register</h1>
+                </div>
+
+                <div class="input-container">
+                    <label>Name</label>
+                    <input name="name" type="text">
+                </div>
+
+                <div class="input-container">
+                    <label>Surname</label>
+                    <input name="surname" type="text">
                 </div>
 
                 <div class="input-container">
@@ -25,6 +35,11 @@
                 <div class="input-container">
                     <label>Password</label>
                     <input name="password" type="password">
+                </div>
+
+                <div class="input-container">
+                    <label>Repeat password</label>
+                    <input name="repeat-password" type="password">
                 </div>
 
                 <div class="messages">
