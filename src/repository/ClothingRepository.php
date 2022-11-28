@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once 'Repository.php';
 require_once __DIR__.'/../models/Clothing.php';
@@ -35,7 +36,9 @@ class ClothingRepository extends Repository
                 VALUES(?, ?, ?, ?, ?)
         ');
 
-        $id_user = 1; //TODO: get user id from current session
+//        $id_user = 1; //TODO: get user id from current session
+        $id_user = $_SESSION['id_user'];
+        var_dump($id_user);
 
         $stmt->execute([
             $clothing->getName(),

@@ -32,6 +32,8 @@ class SecurityController extends AppController
         }
 
 //        return $this->render('wardrobe');
+        session_start();
+        $_SESSION['id_user'] = $user->getId();
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/wardrobe");
     }
