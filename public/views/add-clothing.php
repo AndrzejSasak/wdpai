@@ -7,17 +7,10 @@
 </head>
 
 <body>
-    
+
     <div class="main-container">
-        <nav class="sidenav">
-            <label class="nav-label">Your Virtual Wardrobe</label>
-    
-            <a href="./wardrobe">Wardrobe</a>
-            <a href="./randomizer">Outfit randomizer</a>
-            <a href="./picker">Outfit picker</a>
-            <a href="./favourites">Favourite outfits</a>
-        </nav>
-    
+        <?php include('nav.php'); ?>
+
         <main>
 
             <section class="clothing-upload">
@@ -32,7 +25,7 @@
                     <label>Name</label>
                     <input id="name" name="name" type="text">
                     <select class="category" name="category">
-                        <option value="shirts">Shirts</option>
+                        <option value="Shirts">Shirts</option>
                         <option value="Jackets">Jackets</option>
                         <option value="Pants">Pants</option>
                         <option value="Socks">Socks</option>
@@ -47,64 +40,16 @@
                 </form>
             </section>
 
-            <section class="clothing-section">
-                <label class="clothing-section-label">Shirts</label>
-                <div class="image-space">
-                    <?php if(isset($clothing)) { ?>
-                        <img src="public/uploads/<?= $clothing->getImage() ?>">
-                        <h2><?= $clothing->getName()?></h2>
-                        <p><?= $clothing->getCategory()?></p>
-                    <?php } else { ?>
-                        <p>No clothes so far. Add some</p>
-                    <?php } ?>
-                </div>
-            </section>
+            <?php foreach (['Shirts', 'Jackets', 'Pants', 'Shoes', 'Accessories'] as $category) {
+                if(isset($clothing)) {
+                    AppController::includeWithVariables('public/views/clothing-section.php', ['category' => $category, 'clothing' => $clothing]);
+                } else {
+                    AppController::includeWithVariables('public/views/clothing-section.php', ['category' => $category]);
+                }
+            } ?>
 
-            <section class="clothing-section">
-                <label class="clothing-section-label">Jackets</label>
-                <div class="image-space">
-                    
-                </div>
-            </section>
-
-            <section class="clothing-section">
-                <label class="clothing-section-label">Pants</label>
-                <div class="image-space">
-                    
-                </div>
-            </section>
-
-            <section class="clothing-section">
-                <label class="clothing-section-label">Socks</label>
-                <div class="image-space">
-                    
-                </div>
-            </section>
-
-            
-            <section class="clothing-section">
-                <label class="clothing-section-label">Shoes</label>
-                <div class="image-space">
-                    <img>
-
-                    <img>
-                </div>
-            </section>
-
-            <section class="clothing-section">
-                <label class="clothing-section-label">Accessories</label>
-                <div class="image-space">
-                    
-                </div>
-            </section>
-    
         </main>
 
     </div>
-  
-    
 
-    
-
-    
 </body>

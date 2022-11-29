@@ -61,7 +61,7 @@ class SecurityController extends AppController
 
         $userRegistered = $userRepository->getUser($email);
         session_start();
-        $_SESSION['id_user'] = $user->getId();
+        $_SESSION['id_user'] = $userRegistered->getId();
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/wardrobe");
     }

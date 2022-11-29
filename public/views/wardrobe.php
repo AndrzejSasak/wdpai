@@ -3,142 +3,19 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/wardrobe.css">
     <title>Wardrobe</title>
-
 </head>
-
 <body>
         <div class="main-container">
-
-            <nav class="sidenav">
-                <label class="nav-label">Your Virtual Wardrobe</label>
-
-                <a href="./wardrobe">Wardrobe</a>
-                <a href="./randomizer">Outfit randomizer</a>
-                <a href="./picker">Outfit picker</a>
-                <a href="./favourites">Favourite outfits</a>
-            </nav>
-
+            <?php include('nav.php'); ?>
             <main>
-
                 <a href="./addClothing">Add clothes</a>
-
-                <section class="clothing-section">
-                    <label>Shirts</label>
-                    <div>
-
-                    </div>
-                </section>
-
-                <section class="clothing-section">
-                    <label class="clothing-section-label">Jackets</label>
-                    <div class="image-space">
-
-                    </div>
-                </section>
-
-                <section class="clothing-section">
-                    <label class="clothing-section-label">Pants</label>
-                    <div class="image-space">
-
-                    </div>
-                </section>
-
-                <section class="clothing-section">
-                    <label class="clothing-section-label">Socks</label>
-                    <div class="image-space">
-
-                    </div>
-                </section>
-
-
-                <section class="clothing-section">
-                    <label class="clothing-section-label">Shoes</label>
-                    <div class="image-space">
-                        <img>
-
-                        <img>
-                    </div>
-                </section>
-
-                <section class="clothing-section">
-                    <label class="clothing-section-label">Accessories</label>
-                    <div class="image-space">
-
-                    </div>
-                </section>
-
+                <?php foreach (['Shirts', 'Jackets', 'Pants', 'Shoes', 'Accessories'] as $category) {
+                    if(isset($clothing)) {
+                        AppController::includeWithVariables('public/views/clothing-section.php', ['category' => $category, 'clothing' => $clothing]);
+                    } else {
+                        AppController::includeWithVariables('public/views/clothing-section.php', ['category' => $category]);
+                    }
+                } ?>
             </main>
-
         </div>
-<!--    <div class="main-container">-->
-<!--        <nav class="sidenav">-->
-<!--            <label class="nav-label">Your Virtual Wardrobe</label>-->
-<!--    -->
-<!--            <a href="./wardrobe">Wardrobe</a>-->
-<!--            <a href="./randomizer">Outfit randomizer</a>-->
-<!--            <a href="./picker">Outfit picker</a>-->
-<!--            <a href="./favourites">Favourite outfits</a>-->
-<!--        </nav>-->
-<!--    -->
-<!--        <div class="main">-->
-<!---->
-<!--            <form action="addClothing" method="get">-->
-<!--                <button id="add-clothes-button" class="util-button">Add clothes</button>-->
-<!--            </form>-->
-<!---->
-<!---->
-<!--            <section class="clothing-section">-->
-<!--                <label class="clothing-section-label">Shirts</label>-->
-<!--                <div class="image-space">-->
-<!---->
-<!--                </div>-->
-<!--            </section>-->
-<!---->
-<!--            <section class="clothing-section">-->
-<!--                <label class="clothing-section-label">Jackets</label>-->
-<!--                <div class="image-space">-->
-<!--                    -->
-<!--                </div>-->
-<!--            </section>-->
-<!---->
-<!--            <section class="clothing-section">-->
-<!--                <label class="clothing-section-label">Pants</label>-->
-<!--                <div class="image-space">-->
-<!--                    -->
-<!--                </div>-->
-<!--            </section>-->
-<!---->
-<!--            <section class="clothing-section">-->
-<!--                <label class="clothing-section-label">Socks</label>-->
-<!--                <div class="image-space">-->
-<!--                    -->
-<!--                </div>-->
-<!--            </section>-->
-<!---->
-<!--            -->
-<!--            <section class="clothing-section">-->
-<!--                <label class="clothing-section-label">Shoes</label>-->
-<!--                <div class="image-space">-->
-<!--                    <img>-->
-<!---->
-<!--                    <img>-->
-<!--                </div>-->
-<!--            </section>-->
-<!---->
-<!--            <section class="clothing-section">-->
-<!--                <label class="clothing-section-label">Accessories</label>-->
-<!--                <div class="image-space">-->
-<!--                    -->
-<!--                </div>-->
-<!--            </section>-->
-<!--    -->
-<!--        </div>-->
-<!---->
-<!--    </div>-->
-  
-    
-
-    
-
-    
 </body>

@@ -28,7 +28,6 @@ class Router {
 
         $object->$action();
 
-
     }
 
 }
