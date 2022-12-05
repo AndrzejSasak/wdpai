@@ -8,7 +8,7 @@
         <div class="main-container">
             <?php include('nav.php'); ?>
             <main>
-                <button action="addClothing" method="POST">Add clothes</button>
+                <a href="./addClothing">Add clothes</a>
                 <?php
 //                var_dump($allClothing);
                 foreach (['Shirts', 'Jackets', 'Pants', 'Shoes', 'Accessories'] as $category) {

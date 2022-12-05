@@ -23,12 +23,6 @@ class ClothingController extends AppController
 
     public function addClothing()
     {
-//        var_dump($_SESSION['id_user']);
-//        var_dump($this->isPost());
-//        var_dump(is_uploaded_file($_FILES['file']['tmp_name']));
-//        var_dump($this->isValidated($_FILES['file']));
-//        $allClothing = $this->clothingRepository->getAllClothingOfUser();
-//        $this->render('add-clothing', ['allClothing' => $allClothing]);
 
         if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->isValidated($_FILES['file'])) {
 
