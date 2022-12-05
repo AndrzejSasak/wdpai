@@ -8,12 +8,13 @@
         <div class="main-container">
             <?php include('nav.php'); ?>
             <main>
-                <a href="./addClothing">Add clothes</a>
-                <?php foreach (['Shirts', 'Jackets', 'Pants', 'Shoes', 'Accessories'] as $category) {
-                    if(isset($clothing)) {
-                        AppController::includeWithVariables('public/views/clothing-section.php', ['category' => $category, 'clothing' => $clothing]);
-                    } else {
-                        AppController::includeWithVariables('public/views/clothing-section.php', ['category' => $category]);
+                <button action="addClothing" method="POST">Add clothes</button>
+                <?php
+//                var_dump($allClothing);
+                foreach (['Shirts', 'Jackets', 'Pants', 'Shoes', 'Accessories'] as $category) {
+                    if(isset($allClothing)) {
+                        AppController::includeWithVariables('public/views/clothing-section.php',
+                            ['category' => $category, 'allClothing' => $allClothing]);
                     }
                 } ?>
             </main>

@@ -23,13 +23,21 @@ class ClothingController extends AppController
 
     public function addClothing()
     {
+//        var_dump($_SESSION['id_user']);
+//        var_dump($this->isPost());
+//        var_dump(is_uploaded_file($_FILES['file']['tmp_name']));
+//        var_dump($this->isValidated($_FILES['file']));
+//        $allClothing = $this->clothingRepository->getAllClothingOfUser();
+//        $this->render('add-clothing', ['allClothing' => $allClothing]);
 
-        if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name'])  && $this->isValidated($_FILES['file'])) {
+        if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->isValidated($_FILES['file'])) {
 
             move_uploaded_file(
                 $_FILES['file']['tmp_name'],
                 dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
             );
+
+            var_dump($_POST['category']);
 
             $clothing = new Clothing($_POST['name'], $_POST['category'], $_FILES['file']['name']);
             $this->clothingRepository->addClothing($clothing);
@@ -38,8 +46,23 @@ class ClothingController extends AppController
             $this->render('add-clothing', ['messages' => $this->messages, 'clothing' => $clothing]);
         }
 
-        $this->render('add-clothing', ['messages' => $this->messages]);
+        $this->render('add-clothing', ['messages' => $this->messages] );
     }
+
+    public function addClothingPage() {
+        $allClothing = $this->clothingRepository->getAllClothingOfUser();
+        $this->render('add-clothing', ['allClothing' => $allClothing]);
+    }
+
+    public function wardrobe() {
+        $allClothing = $this->clothingRepository->getAllClothingOfUser();
+        $this->render('wardrobe', ['allClothing' => $allClothing]);
+    }
+
+//    public function addClothing() {
+//        $allClothing = $this->clothingRepository->getAllClothingOfUser();
+//        $this->render('add-clothing', ['allClothing' => $allClothing]);
+//    }
 
     private function isValidated(array $file) : bool
     {

@@ -12,7 +12,7 @@ class ClothingRepository extends Repository
         $stmt = $this->database->connect()->prepare(
             'SELECT * FROM clothing WHERE id_clothing = :id'
         );
-        $stmt->bindParam('email', $email, PDO::PARAM_INT);
+        $stmt->bindParam('id', $id, PDO::PARAM_INT);
         $stmt->execute();
 
         $clothing = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -28,6 +28,30 @@ class ClothingRepository extends Repository
         );
     }
 
+    public function getAllClothingOfUser(): array
+    {
+        $result = [];
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM clothing WHERE id_user = :id_user
+        ');
+        $stmt->bindParam('id_user', $_SESSION['id_user'], PDO::PARAM_INT);
+        $stmt->execute();
+
+        $allClothing = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($allClothing as $clothing) {
+            $result[] = new Clothing(
+                $clothing['name'],
+                $clothing['category'],
+                $clothing['image']
+            );
+        }
+
+        return $result;
+    }
+
+
     public function addClothing(Clothing $clothing): void
     {
         $date = new DateTime();
@@ -36,7 +60,7 @@ class ClothingRepository extends Repository
                 VALUES(?, ?, ?, ?, ?)
         ');
 
-//        $id_user = 1; //TODO: get user id from current session
+
         $id_user = $_SESSION['id_user'];
 
         $stmt->execute([

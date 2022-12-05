@@ -12,27 +12,15 @@ class DefaultController extends AppController {
         $this->render('register');
     }
 
-    public function wardrobe() {
-//        session_start();
-//        $this->checkUserIsLoggedIn();
-        $this->render('wardrobe');
-    }
-
     public function randomizer() {
-//        session_start();
-//        $this->checkUserIsLoggedIn();
         $this->render('randomizer');
     }
 
     public function picker() {
-//        session_start();
-//        $this->checkUserIsLoggedIn();
         $this->render('picker');
     }
 
     public function favourites() {
-//        session_start();
-//        $this->checkUserIsLoggedIn();
         $this->render('favourites');
     }
 
