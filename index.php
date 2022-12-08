@@ -19,4 +19,5 @@ Router::get('addClothingPage', 'ClothingController');
 Router::post('login', 'SecurityController');
 Router::post('register', 'SecurityController');
 Router::post('addClothing', 'ClothingController');
+Router::post('randomizeOutfit', 'ClothingController');
 Router::run($path);

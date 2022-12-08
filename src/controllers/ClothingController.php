@@ -35,6 +35,7 @@ class ClothingController extends AppController
 
 //            var_dump($_POST['category']);
 
+//            var_dump($_POST);
             $clothing = new Clothing($_POST['name'], new Category($_POST['category']), $_FILES['file']['name']);
             $this->clothingRepository->addClothing($clothing);
 
@@ -55,10 +56,18 @@ class ClothingController extends AppController
         $this->render('wardrobe', ['allClothing' => $allClothing]);
     }
 
-//    public function addClothing() {
-//        $allClothing = $this->clothingRepository->getAllClothingOfUser();
-//        $this->render('add-clothing', ['allClothing' => $allClothing]);
-//    }
+    public function randomizeOutfit() {
+        $randomizedOutfit = $this->clothingRepository->getRandomizedOutfit();
+        if($randomizedOutfit != null) {
+            $this->render('randomizer', ['randomizedOutfit' => $randomizedOutfit]);
+        } else {
+            $this->messages[] = 'Cannot pick randomized outfit. 
+            Make sure you have at least 1 piece of clothing in each category';
+            $this->render('randomizer', ['messages' => $this->messages]);
+        }
+
+    }
+
 
     private function isValidated(array $file) : bool
     {

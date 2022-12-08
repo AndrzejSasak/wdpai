@@ -3,6 +3,7 @@ session_start();
 
 require_once 'Repository.php';
 require_once __DIR__.'/../models/Clothing.php';
+require_once __DIR__.'/../models/Outfit.php';
 
 class ClothingRepository extends Repository
 {
@@ -33,7 +34,7 @@ class ClothingRepository extends Repository
         $result = [];
 
         $stmt = $this->database->connect()->prepare('
-            SELECT clo.*, c.name FROM clothing clo 
+            SELECT clo.*, c.category_name FROM clothing clo 
             JOIN category c on clo.id_category = c.id_category
             WHERE id_user = :id_user;
         ');
@@ -41,12 +42,12 @@ class ClothingRepository extends Repository
         $stmt->execute();
 
         $allClothing = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//        var_dump($allClothing);
 
         foreach ($allClothing as $clothing) {
-//            var_dump($clothing['id_category']);
             $result[] = new Clothing(
                 $clothing['name'],
-                new Category($clothing['name']),
+                new Category($clothing['category_name']),
                 $clothing['image']
             );
         }
@@ -54,17 +55,11 @@ class ClothingRepository extends Repository
         return $result;
     }
 
-//    public function getRandomClothingFromCategory(Category $category): ?Clothing
-//    {
-//
-//    }
-
-
     public function addClothing(Clothing $clothing): void
     {
 
         $stmt = $this->database->connect()->prepare('
-            SELECT id_category FROM category WHERE name = :category_name;
+            SELECT id_category FROM category WHERE category_name = :category_name;
         ');
 
         $categoryName = $clothing->getCategory()->getName();
@@ -80,8 +75,6 @@ class ClothingRepository extends Repository
 
         $id_user = $_SESSION['id_user'];
 
-//        var_dump($id_category['id_category']);
-
         $stmt2->execute([
             $clothing->getName(),
             $date->format('Y-m-d'),
@@ -91,5 +84,84 @@ class ClothingRepository extends Repository
         ]);
 
     }
+
+    public function getAllCategoriesOfClothing(): array
+    {
+        $result = [];
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM category;
+        ');
+
+        $stmt->execute();
+        $allCategories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($allCategories as $category) {
+            $result[] = new Category($category['category_name']);
+        }
+
+        return $result;
+    }
+
+    public function getRandomizedOutfit(): ?Outfit
+    {
+        $outfit = new Outfit();
+        $outfit->setIdUser($_SESSION['id_user']);
+
+        if(!$this->userHasClothesInEachCategory()) {
+            return null;
+        }
+
+        $allClothing = $this->getAllClothingOfUser();
+        $allCategories = $this->getAllCategoriesOfClothing();
+
+        foreach($allCategories as $category) {
+            //get a random clothing with current category
+            $allClothingTemp = $allClothing;
+            $randomClothing = $this->getRandomClothingOfCategory($allClothingTemp, $category);
+            //add to outfit
+            $outfit->addClothingToOutfit($randomClothing);
+        }
+
+//        var_dump($outfit);
+
+
+        return $outfit;
+    }
+
+    private function userHasClothesInEachCategory(): bool
+    {
+        $allClothing = $this->getAllClothingOfUser();
+        $allCategories = $this->getAllCategoriesOfClothing();
+
+        foreach ($allCategories as $category) {
+            $hasClothesInCurrentCategory = false;
+            foreach($allClothing as $clothing) {
+                if($clothing->getCategory()->getName() === $category->getName()) {
+                    $hasClothesInCurrentCategory = true;
+                    break;
+                }
+            }
+            if(!$hasClothesInCurrentCategory) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private function getRandomClothingOfCategory(array $allClothing, $category): ?Clothing
+    {
+        $allClothingOfCurrentCategory = array_filter($allClothing, static function (Clothing $clothing) use ($category) {
+            return $clothing->getCategory()->getName() === $category->getName();
+        });
+
+        $allClothingOfCurrentCategoryValues = array_values($allClothingOfCurrentCategory);
+        $randomClothingIndex = rand(0, sizeof($allClothingOfCurrentCategory) - 1);
+        $randomClothing = $allClothingOfCurrentCategoryValues[$randomClothingIndex];
+//        var_dump($randomClothing);
+        return $randomClothing;
+    }
+
 
 }

@@ -26,7 +26,7 @@
                     <input id="name" name="name" type="text">
                     <select class="category" name="category">
                         <?php
-                        $categories = ['Shirts', 'Jackets', 'Pants', 'Shoes', 'Accessories'];
+                        $categories = ['Shirts', 'Jackets', 'Pants', 'Shoes', 'Socks', 'Accessories'];
                         foreach ($categories as $category) { ?>
                             <option value="<?= $category ?>"><?= $category?></option>
                         <?php } ?>

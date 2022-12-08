@@ -11,7 +11,7 @@
                 <a href="./addClothing">Add clothes</a>
                 <?php
 //                var_dump($allClothing);
-                foreach (['Shirts', 'Jackets', 'Pants', 'Shoes', 'Accessories'] as $category) {
+                foreach (['Shirts', 'Jackets', 'Pants', 'Shoes','Socks', 'Accessories'] as $category) {
                     if(isset($allClothing)) {
                         AppController::includeWithVariables('public/views/clothing-section.php',
                             ['category' => $category, 'allClothing' => $allClothing]);
