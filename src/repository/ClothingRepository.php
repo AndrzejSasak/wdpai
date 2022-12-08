@@ -23,7 +23,7 @@ class ClothingRepository extends Repository
 
         return new Clothing(
             $clothing['name'],
-            $clothing['category'],
+            new Category($clothing['category']),
             $clothing['image'],
         );
     }
@@ -43,13 +43,18 @@ class ClothingRepository extends Repository
         foreach ($allClothing as $clothing) {
             $result[] = new Clothing(
                 $clothing['name'],
-                $clothing['category'],
+                new Category($clothing['category']),
                 $clothing['image']
             );
         }
 
         return $result;
     }
+
+//    public function getRandomClothingFromCategory(Category $category): ?Clothing
+//    {
+//
+//    }
 
 
     public function addClothing(Clothing $clothing): void

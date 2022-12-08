@@ -43,7 +43,7 @@ class SecurityController extends AppController
         $userRepository = new UserRepository();
 
         if(!$this->isPost()) {
-            return $this->register('register');
+            return $this->render('register');
         }
 
         $email = $_POST["email"];

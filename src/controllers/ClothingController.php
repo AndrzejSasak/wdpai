@@ -20,9 +20,11 @@ class ClothingController extends AppController
         $this->clothingRepository = new ClothingRepository();
     }
 
-
     public function addClothing()
     {
+
+        var_dump(is_uploaded_file($_FILES['file']['tmp_name']));
+        var_dump($_FILES['file']['tmp_name']);
 
         if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->isValidated($_FILES['file'])) {
 
@@ -33,7 +35,7 @@ class ClothingController extends AppController
 
             var_dump($_POST['category']);
 
-            $clothing = new Clothing($_POST['name'], $_POST['category'], $_FILES['file']['name']);
+            $clothing = new Clothing($_POST['name'], new Category($_POST['category']), $_FILES['file']['name']);
             $this->clothingRepository->addClothing($clothing);
 
             $this->messages[] = 'Picture added';

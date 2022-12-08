@@ -2,6 +2,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/register.css">
+    <script type="text/javascript" src="./public/js/script.js" defer></script>
     <title>Register Page</title>
 
 </head>
@@ -28,7 +29,7 @@
                 </div>
 
                 <div class="input-container">
-                    <label>Username</label>
+                    <label>Email</label>
                     <input name="email" type="text">
                 </div>
 
@@ -38,8 +39,8 @@
                 </div>
 
                 <div class="input-container">
-                    <label>Repeat password</label>
-                    <input name="repeat-password" type="password">
+                    <label>Confirm password</label>
+                    <input name="confirm-password" type="password">
                 </div>
 
                 <div class="messages">

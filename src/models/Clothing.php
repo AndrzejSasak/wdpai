@@ -1,5 +1,7 @@
 <?php
 
+require_once 'Category.php';
+
 class Clothing
 {
 
@@ -7,7 +9,7 @@ class Clothing
     private $category;
     private $image;
 
-    public function __construct($name, $category, $image)
+    public function __construct(string $name, Category $category, string $image)
     {
         $this->name = $name;
         $this->category = $category;
@@ -24,12 +26,12 @@ class Clothing
         $this->name = $name;
     }
 
-    public function getCategory(): string
+    public function getCategory(): Category
     {
         return $this->category;
     }
 
-    public function setCategory(string $category)
+    public function setCategory(Category $category)
     {
         $this->category = $category;
     }
