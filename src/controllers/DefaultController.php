@@ -20,8 +20,8 @@ class DefaultController extends AppController {
         $this->render('picker');
     }
 
-    public function favourites() {
-        $this->render('favourites');
+    public function outfits() {
+        $this->render('outfits');
     }
 
     private function checkUserIsLoggedIn() {

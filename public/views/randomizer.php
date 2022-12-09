@@ -77,6 +77,15 @@
                             <img src="public/uploads/<?=  $randomizedOutfit->getClothingPieces()[$key]->getImage() ?>">
                         <?php } } ?>
                 </div>
+
+
+                <?php
+                $_SESSION['outfit'] = serialize($randomizedOutfit);
+                ?>
+                <form action="addToFavourites" method="POST">
+                    <button type="submit">Add outfit to favourites</button>
+                </form>
+
                 <?php } ?>
 
                 <div class="messages">
@@ -87,6 +96,8 @@
                     }
                     ?>
                 </div>
+
+
 
 
             </div>

@@ -4,9 +4,20 @@ require_once 'User.php';
 
 class Outfit
 {
+    private int $id;
     private string $name;
     private int $id_user;
     private array $clothingPieces;
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
 
     public function getIdUser(): int
     {

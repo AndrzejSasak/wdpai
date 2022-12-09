@@ -1,7 +1,10 @@
 <?php
 
+session_start();
+
 require_once 'AppController.php';
 require_once __DIR__.'/../models/Clothing.php';
+require_once __DIR__.'/../models/Outfit.php';
 require_once __DIR__.'/../repository/ClothingRepository.php';
 
 class ClothingController extends AppController
@@ -23,9 +26,6 @@ class ClothingController extends AppController
     public function addClothing()
     {
 
-//        var_dump(is_uploaded_file($_FILES['file']['tmp_name']));
-//        var_dump($_FILES['file']['tmp_name']);
-
         if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->isValidated($_FILES['file'])) {
 
             move_uploaded_file(
@@ -33,9 +33,6 @@ class ClothingController extends AppController
                 dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
             );
 
-//            var_dump($_POST['category']);
-
-//            var_dump($_POST);
             $clothing = new Clothing($_POST['name'], new Category($_POST['category']), $_FILES['file']['name']);
             $this->clothingRepository->addClothing($clothing);
 
@@ -56,6 +53,11 @@ class ClothingController extends AppController
         $this->render('wardrobe', ['allClothing' => $allClothing]);
     }
 
+    public function favourites() {
+        $favouriteOutfits = $this->clothingRepository->getFavouriteOutfitsOfUser();
+        $this->render('favourites', ['favouriteOutfits' => $favouriteOutfits]);
+    }
+
     public function randomizeOutfit() {
         $randomizedOutfit = $this->clothingRepository->getRandomizedOutfit();
         if($randomizedOutfit != null) {
@@ -68,6 +70,11 @@ class ClothingController extends AppController
 
     }
 
+    public function addToFavourites(): void
+    {
+        $outfit = unserialize($_SESSION['outfit']);
+        $this->clothingRepository->addOutfitToFavourites($outfit);
+    }
 
     private function isValidated(array $file) : bool
     {
