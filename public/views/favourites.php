@@ -17,7 +17,7 @@
 
             <?php
             if(isset($favouriteOutfits)) {
-            var_dump(sizeof($favouriteOutfits));
+//            var_dump(sizeof($favouriteOutfits));
             foreach($favouriteOutfits as $outfit) {
                 AppController::includeWithVariables('public/views/outfit.php',
                     ['outfit' => $outfit]);

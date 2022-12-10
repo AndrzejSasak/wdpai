@@ -160,7 +160,6 @@ main {
     .sidenav a {font-size: 18px;}
 }
 
-
 .prompt {
     font-family: 'Source Serif 4';
     font-style: normal;
@@ -173,13 +172,9 @@ main {
     margin-left: 5%;
 }
 
-
-
 .outfit {
     width: 90%;
     display: grid;
-    /*flex-direction: row;*/
-    /* grid-template-columns: repeat(auto-fill,minmax(5%, 35%));*/
     grid-template-columns: repeat(auto-fill, minmax(5%, 47%));
     column-gap: 5%;
     row-gap: 5%;

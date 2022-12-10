@@ -53,6 +53,11 @@ class ClothingController extends AppController
         $this->render('wardrobe', ['allClothing' => $allClothing]);
     }
 
+    public function outfits() {
+        $allOutfits = $this->clothingRepository->getAllOutfitsOfUser();
+        $this->render('outfits', ['allOutfits' => $allOutfits]);
+    }
+
     public function favourites() {
         $favouriteOutfits = $this->clothingRepository->getFavouriteOutfitsOfUser();
         $this->render('favourites', ['favouriteOutfits' => $favouriteOutfits]);
@@ -74,6 +79,12 @@ class ClothingController extends AppController
     {
         $outfit = unserialize($_SESSION['outfit']);
         $this->clothingRepository->addOutfitToFavourites($outfit);
+    }
+
+    public function saveToAllOutfits(): void
+    {
+        $outfit = unserialize($_SESSION['outfit']);
+        $this->clothingRepository->saveToAllOutfits($outfit);
     }
 
     private function isValidated(array $file) : bool

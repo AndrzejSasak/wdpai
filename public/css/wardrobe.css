@@ -28,6 +28,36 @@ main > a {
     border-width: 0px;
 }
 
+.clothing-part {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+
+    padding: 5%;
+    border: solid;
+}
+
+.image-space {
+    height: max-content;
+    display: grid;
+    /*flex-direction: row;*/
+    /* grid-template-columns: repeat(auto-fill,minmax(5%, 35%));*/
+    grid-template-columns: repeat(auto-fill, minmax(0%, 47.5%));
+    column-gap: 5%;
+    border: solid;
+}
+
+.clothing-image {
+    height: 100%;
+    display: block;
+    margin: auto;
+    max-width: 100%;
+
+    border: 3px solid black;
+    border-radius: 45px;
+}
+
 @media only screen and (max-device-width: 700px) {
 
     .picture {

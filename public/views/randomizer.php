@@ -85,6 +85,9 @@
                 <form action="addToFavourites" method="POST">
                     <button type="submit">Add outfit to favourites</button>
                 </form>
+                <form action="saveToAllOutfits" method="POST">
+                    <button type="submit">Save outfit</button>
+                </form>
 
                 <?php } ?>
 

@@ -5,6 +5,7 @@
     $categories = Category::$VALUES;
     foreach($categories as $category) {
         if(isset($outfit)) {
+//            var_dump($outfit);
             $allOutfitsParts = $outfit->getClothingPieces();
             $outfitPart = null;
             foreach ($allOutfitsParts as $currentOutfitPart) {

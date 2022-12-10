@@ -16,45 +16,15 @@
 
         <h1 class="prompt">Here are your outfits:</h1>
 
-        <div class="outfit">
-
-            <div class="outfit-part">
-                <label class="outfit-part-label">Shirt</label>
-
-                <img>
-            </div>
-
-            <div class="outfit-part">
-                <label class="outfit-part-label">Jacket</label>
-
-                <img>
-            </div>
-
-            <div class="outfit-part">
-                <label class="outfit-part-label">Pants</label>
-
-                <img>
-            </div>
-
-            <div class="outfit-part">
-                <label class="outfit-part-label">Socks</label>
-
-                <img>
-            </div>
-
-            <div class="outfit-part">
-                <label class="outfit-part-label">Shoes</label>
-
-                <img>
-            </div>
-
-            <div class="outfit-part">
-                <label class="outfit-part-label">Accessories</label>
-
-                <img>
-            </div>
-
-        </div>
+        <?php
+        if(isset($allOutfits)) {
+//            var_dump($allOutfits);
+            foreach($allOutfits as $outfit) {
+                AppController::includeWithVariables('public/views/outfit.php',
+                    ['outfit' => $outfit]);
+                ?> <?php
+            } }
+        ?>
 
 
 </div>

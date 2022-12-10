@@ -176,27 +176,7 @@ class ClothingRepository extends Repository
 
         $pdo->beginTransaction();
 
-        $stmt = $pdo->prepare('
-            INSERT INTO outfit(id_user) VALUES (:id_user);
-        ');
-        $idUser = $outfit->getIdUser();
-        $stmt->bindParam('id_user', $idUser, PDO::PARAM_INT);
-
-        $stmt->execute();
-
-        $id_outfit = $pdo->lastInsertId();
-
-        foreach ($outfit->getClothingPieces() as $clothingPiece) {
-            $stmt2 = $pdo->prepare('
-                INSERT INTO clothing_outfit(id_clothing, id_outfit) VALUES (:id_clothing, :id_outfit)
-            ');
-            $id_clothing = $clothingPiece->getId();
-            var_dump($id_clothing);
-            $stmt2->bindParam('id_clothing', $id_clothing, PDO::PARAM_INT);
-            $stmt2->bindParam('id_outfit', $id_outfit, PDO::PARAM_INT);
-
-            $stmt2->execute();
-        }
+        list($idUser, $id_outfit, $id_clothing) = $this->addOutfitToOutfitTable($pdo, $outfit);
 
         //add to favourites
         $stmt3 = $pdo->prepare('
@@ -211,8 +191,6 @@ class ClothingRepository extends Repository
 
     public function getFavouriteOutfitsOfUser(): array
     {
-
-        $result = [];
 
         $stmt1 = $this->database->connect()->prepare('
             SELECT DISTINCT id_outfit FROM favourite_outfit WHERE id_user = :id_user;
@@ -243,7 +221,6 @@ class ClothingRepository extends Repository
         $allClothingPiecesFromStmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $resultOutfits = [];
-
         foreach($outfitIds as $outfitId) {
             $outfit = new Outfit();
             $outfit->setId($outfitId['id_outfit']);
@@ -269,6 +246,98 @@ class ClothingRepository extends Repository
 
 //        var_dump($resultOutfits);
         return $resultOutfits;
+    }
+
+    public function getAllOutfitsOfUser(): array
+    {
+        $stmt1 = $this->database->connect()->prepare('
+            SELECT id_outfit FROM outfit WHERE id_user = :id_user;
+        ');
+        $stmt1->bindParam('id_user', $_SESSION['id_user'], PDO::PARAM_INT);
+        $stmt1->execute();
+        $outfitIds = $stmt1->fetchAll(PDO::FETCH_ASSOC);
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT outfit.id_outfit id_outfit,
+               outfit.name outfit_name,
+               outfit.id_user id_user,
+               c.id_clothing id_clothing,
+               c.name clothing_name,
+               c.image image,
+               c2.category_name category_name
+            FROM outfit
+                     JOIN clothing_outfit co on outfit.id_outfit = co.id_outfit
+                     JOIN clothing c on co.id_clothing = c.id_clothing
+                     JOIN category c2 on c.id_category = c2.id_category
+            WHERE outfit.id_user = :id_user
+            ORDER BY id_outfit
+        ');
+        $stmt->bindParam('id_user', $_SESSION['id_user'], PDO::PARAM_INT);
+
+        $stmt->execute();
+        $allClothingPiecesFromStmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $resultOutfits = [];
+        foreach($outfitIds as $outfitId) {
+            $outfit = new Outfit();
+            $outfit->setId($outfitId['id_outfit']);
+            $outfit->setIdUser($_SESSION['id_user']);
+            $resultOutfits[] = $outfit;
+        }
+
+        foreach ($allClothingPiecesFromStmt as $clothingPiece) {
+            $newClothingPiece = new Clothing(
+                $clothingPiece['clothing_name'],
+                new Category($clothingPiece['category_name']),
+                $clothingPiece['image'],
+            );
+            $newClothingPiece->setId($clothingPiece['id_clothing']);
+            $newClothingPiece->setOutfitId($clothingPiece['id_outfit']);
+
+            foreach ($resultOutfits as $outfit) {
+                if($outfit->getId() === $newClothingPiece->getOutfitId()) {
+//                    var_dump($newClothingPiece->getOutfitId());
+                    $outfit->addClothingToOutfit($newClothingPiece);
+                }
+            }
+        }
+
+//        var_dump($resultOutfits);
+        return $resultOutfits;
+    }
+
+    public function saveToAllOutfits($outfit): void
+    {
+        $pdo = $this->database->connect();
+        $pdo->beginTransaction();
+        $this->addOutfitToOutfitTable($pdo, $outfit);
+        $pdo->commit();
+    }
+
+    public function addOutfitToOutfitTable(?PDO $pdo, Outfit $outfit): array
+    {
+        $stmt = $pdo->prepare('
+            INSERT INTO outfit(id_user) VALUES (:id_user);
+        ');
+        $idUser = $outfit->getIdUser();
+        $stmt->bindParam('id_user', $idUser, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        $id_outfit = $pdo->lastInsertId();
+
+        foreach ($outfit->getClothingPieces() as $clothingPiece) {
+            $stmt2 = $pdo->prepare('
+                INSERT INTO clothing_outfit(id_clothing, id_outfit) VALUES (:id_clothing, :id_outfit)
+            ');
+            $id_clothing = $clothingPiece->getId();
+//            var_dump($id_clothing);
+            $stmt2->bindParam('id_clothing', $id_clothing, PDO::PARAM_INT);
+            $stmt2->bindParam('id_outfit', $id_outfit, PDO::PARAM_INT);
+
+            $stmt2->execute();
+        }
+        return array($idUser, $id_outfit, $id_clothing);
     }
 
 

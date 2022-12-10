@@ -6,9 +6,10 @@
         <?php if(isset($allClothing)) {
             foreach ($allClothing as $clothing) {
                 if($clothing->getCategory()->getName() === $category) { ?>
-                    <img src="public/uploads/<?= $clothing->getImage() ?>">
-                    <h2><?= $clothing->getName()?></h2>
-                    <p><?= $clothing->getCategory()->getName()?></p>
+                    <div class="clothing-part">
+                        <img src="public/uploads/<?= $clothing->getImage() ?>" class="clothing-image">
+                        <h2><?= $clothing->getName()?></h2>
+                    </div>
             <?php } } ?>
         <?php } ?>
     </div>
