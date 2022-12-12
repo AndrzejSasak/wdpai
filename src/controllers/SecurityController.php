@@ -15,6 +15,11 @@ class SecurityController extends AppController
             return $this->login('login');
         }
 
+        if(isset($_COOKIE['user'])) {
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: ${url}/wardrobe");
+        }
+
         $email = $_POST["email"];
         $password = $_POST["password"];
         $user = $userRepository->getUser($email);
@@ -31,7 +36,10 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['Wrong password']]);
         }
 
-//        return $this->render('wardrobe');
+        $cookie_name = 'user';
+        $cookie_value = $email;
+        setcookie($cookie_name, $cookie_value, time() + (60 * 20), "/"); //20 mins
+
         session_start();
         $_SESSION['id_user'] = $user->getId();
         $url = "http://$_SERVER[HTTP_HOST]";
@@ -60,11 +68,21 @@ class SecurityController extends AppController
         $userRepository->createUser($user);
 
         $userRegistered = $userRepository->getUser($email);
+        $cookie_name = 'user';
+        $cookie_value = $userRegistered->getEmail();
+        setcookie($cookie_name, $cookie_value, time() + (60 * 20), "/"); //20 mins
+
         session_start();
         $_SESSION['id_user'] = $userRegistered->getId();
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/wardrobe");
     }
 
+    public function logout()
+    {
+        setcookie('user', $_COOKIE['user'], time() - 10, "/");
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/index");
+    }
 
 }

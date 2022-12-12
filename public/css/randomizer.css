@@ -8,3 +8,51 @@ hr {
 
     background-color: #000000;
 }
+
+.afterRandomButtons {
+    min-height: 10%;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 5%;
+}
+
+.submitButtonForm {
+    width: 40%;
+    height: 100%;
+}
+
+.submitButton {
+    width: 100%;
+    height: 100%;
+
+    padding: 1%;
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vw;
+    line-height: 2vw;
+
+    color:#FBEAFF;
+    text-decoration: none;
+    text-align: center;
+    background: #00C9A7;
+    border-radius: 2vw;
+    border-width: 0px;
+    cursor: pointer;
+}
+
+
+#before-button, #after-button {
+    margin-top: 5%;
+}
+
+#before-button {
+    height: 10%;
+}
+
+#after-button {
+    height: 100%;
+}

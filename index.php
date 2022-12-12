@@ -20,6 +20,7 @@ Router::get('addClothingPage', 'ClothingController');
 Router::get('outfits', 'ClothingController');
 Router::post('login', 'SecurityController');
 Router::post('register', 'SecurityController');
+Router::post('logout', 'SecurityController');
 Router::post('addClothing', 'ClothingController');
 Router::post('randomizeOutfit', 'ClothingController');
 Router::post('addToFavourites', 'ClothingController');

@@ -1,3 +1,10 @@
+<?php
+if(!isset($_COOKIE['user'])) {
+    $url = "http://$_SERVER[HTTP_HOST]";
+    header("Location: ${url}/index");
+}
+
+?>
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
@@ -13,92 +20,41 @@
 
         <main class="outfits-main">
 
-            <form action="randomizeOutfit" method="POST">
-                <button id="choose-my-outfit-button" class="util-button">Chooose my outfit</button>
+            <form action="randomizeOutfit" method="POST" class="submitButtonForm">
+                <?php if(isset($randomizedOutfit)) { ?>
+                    <button id="after-button" class="submitButton">Choose my outfit</button>
+                <?php } else { ?>
+                    <button id="before-button" class="submitButton">Choose my outfit</button>
+                <?php } ?>
             </form>
 
             <hr>
 
             <?php if(isset($randomizedOutfit)) { ?>
             <h1 class="prompt">Your outfit for the day is:</h1>
+            <?php AppController::includeWithVariables('public/views/outfit.php',
+                ['outfit' => $randomizedOutfit]);
+            $_SESSION['outfit'] = serialize($randomizedOutfit); ?>
 
-            <div class="outfit">
-
-                <div class="outfit-part">
-                    <label class="outfit-part-label">Shirt</label>
-                    <?php foreach ($randomizedOutfit->getClothingPieces() as $clothingPiece) {
-                        if($clothingPiece->getCategory()->getName() === "Shirts") {
-                            $key = array_search($clothingPiece, $randomizedOutfit->getClothingPieces()); ?>
-                            <img src="public/uploads/<?=  $randomizedOutfit->getClothingPieces()[$key]->getImage() ?>">
-                        <?php } } ?>
-                </div>
-
-                <div class="outfit-part">
-                    <label class="outfit-part-label">Jacket</label>
-                    <?php foreach ($randomizedOutfit->getClothingPieces() as $clothingPiece) {
-                        if($clothingPiece->getCategory()->getName() === "Jackets") {
-                            $key = array_search($clothingPiece, $randomizedOutfit->getClothingPieces()); ?>
-                            <img src="public/uploads/<?=  $randomizedOutfit->getClothingPieces()[$key]->getImage() ?>">
-                        <?php } } ?>
-                </div>
-
-                <div class="outfit-part">
-                    <label class="outfit-part-label">Pants</label>
-                    <?php foreach ($randomizedOutfit->getClothingPieces() as $clothingPiece) {
-                        if($clothingPiece->getCategory()->getName() === "Pants") {
-                            $key = array_search($clothingPiece, $randomizedOutfit->getClothingPieces()); ?>
-                            <img src="public/uploads/<?=  $randomizedOutfit->getClothingPieces()[$key]->getImage() ?>">
-                        <?php } } ?>
-                </div>
-
-                <div class="outfit-part">
-                    <label class="outfit-part-label">Socks</label>
-                    <?php foreach ($randomizedOutfit->getClothingPieces() as $clothingPiece) {
-                        if($clothingPiece->getCategory()->getName() === "Shoes") {
-                            $key = array_search($clothingPiece, $randomizedOutfit->getClothingPieces()); ?>
-                            <img src="public/uploads/<?=  $randomizedOutfit->getClothingPieces()[$key]->getImage() ?>">
-                        <?php } } ?>
-                </div>
-
-                <div class="outfit-part">
-                    <label class="outfit-part-label">Shoes</label>
-                    <?php foreach ($randomizedOutfit->getClothingPieces() as $clothingPiece) {
-                        if($clothingPiece->getCategory()->getName() === "Socks") {
-                            $key = array_search($clothingPiece, $randomizedOutfit->getClothingPieces()); ?>
-                            <img src="public/uploads/<?=  $randomizedOutfit->getClothingPieces()[$key]->getImage() ?>">
-                        <?php } } ?>
-                </div>
-
-                <div class="outfit-part">
-                    <label class="outfit-part-label">Accessories</label>
-                    <?php foreach ($randomizedOutfit->getClothingPieces() as $clothingPiece) {
-                        if($clothingPiece->getCategory()->getName() === "Accessories") {
-                            $key = array_search($clothingPiece, $randomizedOutfit->getClothingPieces()); ?>
-                            <img src="public/uploads/<?=  $randomizedOutfit->getClothingPieces()[$key]->getImage() ?>">
-                        <?php } } ?>
-                </div>
-
-
-                <?php
-                $_SESSION['outfit'] = serialize($randomizedOutfit);
-                ?>
-                <form action="addToFavourites" method="POST">
-                    <button type="submit">Add outfit to favourites</button>
+            <div class="afterRandomButtons">
+                <form action="saveToAllOutfits" method="POST" class="submitButtonForm">
+                    <button type="submit"  class="submitButton">Save outfit</button>
                 </form>
-                <form action="saveToAllOutfits" method="POST">
-                    <button type="submit">Save outfit</button>
+                <form action="addToFavourites" method="POST" class="submitButtonForm">
+                    <button type="submit" class="submitButton">Add to favourites</button>
                 </form>
+            </div
 
-                <?php } ?>
+            <?php } ?>
 
-                <div class="messages">
-                    <?php if(isset($messages)) {
-                        foreach ($messages as $message) {
-                            echo $message;
-                        }
+            <div class="messages">
+                <?php if(isset($messages)) {
+                    foreach ($messages as $message) {
+                        echo $message;
                     }
-                    ?>
-                </div>
+                }
+                ?>
+            </div>
 
 
 

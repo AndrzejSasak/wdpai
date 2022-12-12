@@ -26,6 +26,7 @@ main > a {
     background: #00C9A7;
     border-radius: 2vw;
     border-width: 0px;
+    /*border: solid;*/
 }
 
 .clothing-part {
@@ -41,8 +42,6 @@ main > a {
 .image-space {
     height: max-content;
     display: grid;
-    /*flex-direction: row;*/
-    /* grid-template-columns: repeat(auto-fill,minmax(5%, 35%));*/
     grid-template-columns: repeat(auto-fill, minmax(0%, 47.5%));
     column-gap: 5%;
     border: solid;
