@@ -340,5 +340,39 @@ class ClothingRepository extends Repository
         return array($idUser, $id_outfit, $id_clothing);
     }
 
+    public function deleteClothing($clothingToDelete)
+    {
+        $pdo = $this->database->connect();
+        $pdo->beginTransaction();
+
+        foreach($clothingToDelete as $item) {
+            $itemExploded = explode("/", $item);
+            $img_name = end($itemExploded);
+
+            $stmt = $pdo->prepare('
+                DELETE FROM outfit o 
+                       WHERE id_outfit = (SELECT DISTINCT id_outfit FROM clothing_outfit co
+                        JOIN clothing c on c.id_clothing = co.id_clothing WHERE c.image = :img_name)  
+            ');
+            $stmt->bindParam('img_name', $img_name, PDO::PARAM_STR);
+            $stmt->execute();
+
+            $stmt = $pdo->prepare('
+                DELETE FROM clothing_outfit co USING clothing c WHERE c.image = :img_name
+            ');
+            $stmt->bindParam('img_name', $img_name, PDO::PARAM_STR);
+            $stmt->execute();
+
+            $stmt = $pdo->prepare('
+                DELETE FROM clothing WHERE clothing.image = :img_name
+            ');
+            $stmt->bindParam('img_name', $img_name, PDO::PARAM_STR);
+            $stmt->execute();
+
+        }
+
+        $pdo->commit();
+    }
+
 
 }

@@ -15,7 +15,10 @@ if(!isset($_COOKIE['user'])) {
         <div class="main-container">
             <?php include('nav.php'); ?>
             <main>
-                <a href="./addClothing">Add clothes</a>
+                <div class="actionButtons">
+                    <a href="./addClothing">Add clothes</a>
+                    <a href="./deleteClothing">Remove clothes</a>
+                </div>
                 <?php
 //                var_dump($allClothing);
                 foreach (['Shirts', 'Jackets', 'Pants', 'Shoes','Socks', 'Accessories'] as $category) {

@@ -10,6 +10,9 @@ require_once __DIR__.'/../repository/ClothingRepository.php';
 class ClothingController extends AppController
 {
 
+    //TODO: fix situation where you upload file with name that exists in database already;
+    //solution: append something to the end of the string
+
     const MAX_FILE_SIZE = 5 * 1024 * 1024; //5 MB
     const SUPPORTED_TYPES = ['image/png', 'image/jpeg'];
     const UPLOAD_DIRECTORY = '/../public/uploads/';
@@ -21,6 +24,21 @@ class ClothingController extends AppController
     {
         parent::__construct();
         $this->clothingRepository = new ClothingRepository();
+    }
+
+    public function wardrobe() {
+        $allClothing = $this->clothingRepository->getAllClothingOfUser();
+        $this->render('wardrobe', ['allClothing' => $allClothing]);
+    }
+
+    public function outfits() {
+        $allOutfits = $this->clothingRepository->getAllOutfitsOfUser();
+        $this->render('outfits', ['allOutfits' => $allOutfits]);
+    }
+
+    public function favourites() {
+        $favouriteOutfits = $this->clothingRepository->getFavouriteOutfitsOfUser();
+        $this->render('favourites', ['favouriteOutfits' => $favouriteOutfits]);
     }
 
     public function addClothing()
@@ -43,24 +61,22 @@ class ClothingController extends AppController
         $this->render('add-clothing', ['messages' => $this->messages] );
     }
 
-    public function addClothingPage() {
+    public function deleteClothing()
+    {
         $allClothing = $this->clothingRepository->getAllClothingOfUser();
-        $this->render('add-clothing', ['allClothing' => $allClothing]);
+        $this->render('delete-clothing', ['allClothing' => $allClothing]);
     }
 
-    public function wardrobe() {
-        $allClothing = $this->clothingRepository->getAllClothingOfUser();
-        $this->render('wardrobe', ['allClothing' => $allClothing]);
-    }
+    public function delete() {
+        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? $_SERVER["CONTENT_TYPE"] : "";
 
-    public function outfits() {
-        $allOutfits = $this->clothingRepository->getAllOutfitsOfUser();
-        $this->render('outfits', ['allOutfits' => $allOutfits]);
-    }
+        if($contentType === "application/json") {
+            $content = trim(file_get_contents("php://input"));
+            $decoded = json_decode($content, true);
 
-    public function favourites() {
-        $favouriteOutfits = $this->clothingRepository->getFavouriteOutfitsOfUser();
-        $this->render('favourites', ['favouriteOutfits' => $favouriteOutfits]);
+            $this->clothingRepository->deleteClothing($decoded);
+
+        }
     }
 
     public function randomizeOutfit() {
