@@ -2,6 +2,8 @@
 if(!isset($_COOKIE['user'])) {
     $url = "http://$_SERVER[HTTP_HOST]";
     header("Location: ${url}/index");
+} else {
+    setcookie('user', $_COOKIE['user'], time() + (60 * 20), "/");
 }
 
 ?>

@@ -2,6 +2,8 @@
 if(!isset($_COOKIE['user'])) {
     $url = "http://$_SERVER[HTTP_HOST]";
     header("Location: ${url}/index");
+} else {
+    setcookie('user', $_COOKIE['user'], time() + (60 * 20), "/");
 }
 
 ?>
@@ -16,6 +18,8 @@ if(!isset($_COOKIE['user'])) {
 <div class="main-container">
     <?php include('nav.php'); ?>
     <main>
+        <h1>Select the clothes which you want to delete.</h1>
+        <h2>Warning: deleting a piece of clothing will delete all outfits that piece is a part of.</h2>
         <?php
         //                var_dump($allClothing);
         foreach (['Shirts', 'Jackets', 'Pants', 'Shoes','Socks', 'Accessories'] as $category) {
