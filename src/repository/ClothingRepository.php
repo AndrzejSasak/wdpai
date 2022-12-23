@@ -59,10 +59,13 @@ class ClothingRepository extends Repository
         return $result;
     }
 
-    public function addClothing(Clothing $clothing): void
+    public function addClothing(Clothing $clothing): string
     {
 
-        $stmt = $this->database->connect()->prepare('
+        $pdo = $this->database->connect();
+        $pdo->beginTransaction();
+
+        $stmt = $pdo->prepare('
             SELECT id_category FROM category WHERE category_name = :category_name;
         ');
 
@@ -72,15 +75,12 @@ class ClothingRepository extends Repository
         $id_category = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $date = new DateTime();
-        $stmt2 = $this->database->connect()->prepare('
+        $stmt2 = $pdo->prepare('
                 INSERT INTO clothing(name, created_at, image, id_category, id_user) 
                 VALUES(?, ?, ?, ?, ?)
         ');
 
         $id_user = $_SESSION['id_user'];
-
-        var_dump($id_category);
-        var_dump($id_category['id_category']);
 
         $stmt2->execute([
             $clothing->getName(),
@@ -90,6 +90,12 @@ class ClothingRepository extends Repository
             $id_user
         ]);
 
+        $updatedFilename = $pdo->lastInsertId('filename_sequence').'_'.$clothing->getImage();
+
+        $pdo->commit();
+
+
+        return $updatedFilename;
     }
 
     public function getAllCategoriesOfClothing(): array

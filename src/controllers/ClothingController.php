@@ -10,9 +10,6 @@ require_once __DIR__.'/../repository/ClothingRepository.php';
 class ClothingController extends AppController
 {
 
-    //TODO: fix situation where you upload file with name that exists in database already;
-    //solution: append something to the end of the string
-
     const MAX_FILE_SIZE = 5 * 1024 * 1024; //5 MB
     const SUPPORTED_TYPES = ['image/png', 'image/jpeg'];
     const UPLOAD_DIRECTORY = '/../public/uploads/';
@@ -46,14 +43,14 @@ class ClothingController extends AppController
 
         if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->isValidated($_FILES['file'])) {
 
-            move_uploaded_file(
-                $_FILES['file']['tmp_name'],
-                dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
-            );
-
             var_dump($_POST['category']);
             $clothing = new Clothing($_POST['name'], new Category($_POST['category']), $_FILES['file']['name']);
-            $this->clothingRepository->addClothing($clothing);
+            $updatedFilename = $this->clothingRepository->addClothing($clothing);
+
+            move_uploaded_file(
+                $_FILES['file']['tmp_name'],
+                dirname(__DIR__).self::UPLOAD_DIRECTORY.$updatedFilename
+            );
 
             $this->messages[] = 'Picture added';
             $this->render('add-clothing', ['messages' => $this->messages, 'clothing' => $clothing]);
@@ -111,7 +108,7 @@ class ClothingController extends AppController
             return false;
         }
 
-        if(!isset($file['type']) && !in_array($file['type'], self::SUPPORTED_TYPES)) {
+        if(!isset($file['type']) || !in_array($file['type'], self::SUPPORTED_TYPES)) {
             $this->messages[] = 'Filetype not supported.';
             return false;
         }
