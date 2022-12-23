@@ -22,7 +22,6 @@ if(!isset($_COOKIE['user'])) {
                     <a href="./deleteClothing">Remove clothes</a>
                 </div>
                 <?php
-//                var_dump($allClothing);
                 foreach (['Shirts', 'Jackets', 'Pants', 'Shoes','Socks', 'Accessories'] as $category) {
                     if(isset($allClothing)) {
                         AppController::includeWithVariables('public/views/clothing-section.php',

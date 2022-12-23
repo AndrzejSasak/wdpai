@@ -1,8 +1,25 @@
+.delete-prompt, .delete-warning {
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+
+    color: #FBEAFF;
+}
+
+.delete-prompt {
+    font-size: 3vmax;
+    line-height: 3vmax;
+}
+
+.delete-warning {
+    font-size: 2vmax;
+    line-height: 2vmax;
+}
+
 form {
     width: 100%;
     height: 70%;
-
-
 }
 
 .actionButtons {
@@ -64,8 +81,37 @@ form {
     margin: auto;
     max-width: 100%;
 
-    border: 3px solid black;
+    border: 5px solid black;
     border-radius: 45px;
+}
+
+
+.delete-button-form {
+    width: 50%;
+
+    align-self: center;
+}
+
+#delete-button {
+    align-self: center;
+
+    padding: 3%;
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3vmax;
+    line-height: 3vmax;
+    color:#FBEAFF;
+
+    background: #00C9A7;
+    border-radius: 2vmax;
+    border-width: 0;
+
+    cursor: pointer;
+    /*border: solid;*/
+
+    margin-bottom: 5%;
 }
 
 @media only screen and (max-device-width: 700px) {
