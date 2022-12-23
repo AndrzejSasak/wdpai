@@ -67,7 +67,14 @@ input {
 .messages {
     width: 100%;
     height: 10%;
-    /*border: solid;*/
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5vmax;
+    line-height: 1.5vmax;
+
+    color: #8B0000;
 }
 
 .input-container {
@@ -80,7 +87,6 @@ input {
     height: 100%;
 
     border: solid;
-
 }
 
 .register-form {
@@ -111,8 +117,6 @@ input {
 
     border-width: 0;
     cursor: pointer;
-
-    /*border: solid;*/
 
 }
 
@@ -148,6 +152,16 @@ label {
 
 
 @media only screen and (max-device-width: 650px) {
+
+    h1 {
+        font-size: 4vmax;
+        line-height: 4vmax;
+    }
+
+    .input, .register-form, .register-button {
+        font-size: 3vmax;
+        line-height: 3vmax;
+    }
 
     .picture {
         display: none;
