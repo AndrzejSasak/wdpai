@@ -2,5 +2,5 @@
 
 const USERNAME = 'postgres';
 const PASSWORD = 'postgres';
-const HOST = '192.168.0.199';
+const HOST = '10.10.0.3';
 const DATABASE = 'postgres';

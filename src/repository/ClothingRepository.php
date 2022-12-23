@@ -79,6 +79,9 @@ class ClothingRepository extends Repository
 
         $id_user = $_SESSION['id_user'];
 
+        var_dump($id_category);
+        var_dump($id_category['id_category']);
+
         $stmt2->execute([
             $clothing->getName(),
             $date->format('Y-m-d'),

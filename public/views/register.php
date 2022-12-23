@@ -12,7 +12,7 @@
     <div class="page-container">
 
         <div class="register-form-container">
-            <form class="register-form" action="register" method="POST" onsubmit="event.preventDefault(); validateForm()">
+            <form class="register-form" action="register" method="POST" onsubmit="return validateForm();">
 
                 <div class="register-label-container">
                     <h1>Register</h1>

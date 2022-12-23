@@ -32,7 +32,7 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['User with this email not found']]);
         }
 
-        if($user->getPassword() !== $password) {
+        if(!password_verify($password, $user->getPassword())) {
             return $this->render('login', ['messages' => ['Wrong password']]);
         }
 
@@ -61,7 +61,7 @@ class SecurityController extends AppController
             return $this->render('register', ['messages' => ['User with this email already exists']]);
         }
 
-        $password = $_POST['password'];
+        $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
         $name = $_POST['name'];
         $surname = $_POST['surname'];
         $user = User::makeUserWithoutId($email, $password, $name, $surname);

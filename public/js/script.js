@@ -16,7 +16,7 @@ function arePasswordSame(password, confirmPassword) {
         messages.innerHTML = "";
         return true;
     } else {
-        messages.innerHTML = "Password do not match";
+        messages.innerHTML = "Passwords do not match";
         return false;
     }
 

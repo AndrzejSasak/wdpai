@@ -51,6 +51,7 @@ class ClothingController extends AppController
                 dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
             );
 
+            var_dump($_POST['category']);
             $clothing = new Clothing($_POST['name'], new Category($_POST['category']), $_FILES['file']['name']);
             $this->clothingRepository->addClothing($clothing);
 
