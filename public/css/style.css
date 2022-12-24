@@ -99,7 +99,7 @@ main {
 
 .sidenav {
     width: 15%;
-    min-height: 100vh;
+    height: 100%;
     position: fixed;
 
     background: #845EC2;
@@ -107,10 +107,14 @@ main {
 
     display: flex;
     flex-direction: column;
+    align-items: center;
     border: solid;
 }
 
+
 .sidenav a {
+    width: 80%;
+
     display: block;
     background: #00C9A7;
     text-decoration: none;
@@ -122,25 +126,29 @@ main {
     font-family: 'Source Serif 4';
     font-style: normal;
     font-weight: 400;
-    font-size: 24px;
-    line-height: 33px;
+    font-size: 3vh;
+    line-height: 3vh;
 
     color: #FBEAFF;
 }
 
 .nav-label {
+    align-self: center;
+    width: 80%;
+
     margin: 5%;
     margin-bottom: 25%;
     text-align: center;
 
+    border: solid;
+
     font-family: 'Source Serif 4';
     font-style: normal;
     font-weight: 400;
-    font-size: 24px;
-    line-height: 33px;
+    font-size: 3vh;
+    line-height: 3vh;
 
     color: #FBEAFF;
-
 }
 
 #current-page-button {
@@ -157,10 +165,78 @@ main {
 
 }
 
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+.logout-button-form {
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    /*border: solid;*/
+
+    margin-top: 3vh;
 }
+
+.logout-button {
+    width: 80%;
+    height: 100%;
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3vh;
+    line-height: 3vh;
+    background: #00C9A7;
+
+    border-radius: 2vmax;
+    border: none;
+    cursor: pointer;
+    color: #FBEAFF;
+}
+
+#close-sidenav {
+    display: none;
+    align-self: flex-end;
+    justify-self: flex-end;
+}
+
+.hamburger {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.hamburger-container {
+    display: none;
+
+    width: 10%;
+    height: 60%;
+
+    border: solid;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .hamburger-container {
+        display: block;
+    }
+
+    .sidenav {
+        display: none;
+    }
+
+    main {
+        margin-left: 0;
+    }
+
+    #close-sidenav {
+        display: block;
+    }
+
+}
+
 
 .prompt {
     font-family: 'Source Serif 4';
@@ -232,7 +308,7 @@ main {
 }
 
 .clothing-section > label {
-    width: 20%;
+    width: fit-content;
 
     background: #845EC2;
     border-radius: 45px;
@@ -240,11 +316,12 @@ main {
     font-family: 'Source Serif 4';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
-    line-height: 44px;
+    font-size: 4vh;
+    line-height: 4vh;
 
     padding: 1%;
-    padding-left: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
 
     margin-left: 5%;
     margin-top: 1%;
@@ -267,18 +344,4 @@ main {
     box-shadow: 0 0 2em red;
     outline: 2px;
     outline-color: red;
-}
-
-.logout-button-form {
-    width: 100%;
-    height: 20vh;
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    justify-content: flex-end;
-    border: solid;
-}
-
-.logout-button {
-    justify-content: flex-end;
 }
