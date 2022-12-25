@@ -112,6 +112,15 @@ main {
 }
 
 
+.clothing-name {
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3vmin;
+    line-height: 3vmin;
+}
+
+
 .sidenav a {
     width: 80%;
 
@@ -217,27 +226,6 @@ main {
     border: solid;
 }
 
-@media only screen and (max-width: 1000px) {
-
-    .hamburger-container {
-        display: block;
-    }
-
-    .sidenav {
-        display: none;
-    }
-
-    main {
-        margin-left: 0;
-    }
-
-    #close-sidenav {
-        display: block;
-    }
-
-}
-
-
 .prompt {
     font-family: 'Source Serif 4';
     font-style: normal;
@@ -281,8 +269,8 @@ main {
     font-family: 'Source Serif 4';
     font-style: normal;
     font-weight: 400;
-    font-size: 40px;
-    line-height: 55px;
+    font-size: 3vmax;
+    line-height: 3vmax;
 
     color: #000000;
 
@@ -344,4 +332,45 @@ main {
     box-shadow: 0 0 2em red;
     outline: 2px;
     outline-color: red;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .hamburger-container {
+        display: block;
+    }
+
+    .sidenav {
+        display: none;
+    }
+
+    main {
+        margin-left: 0;
+    }
+
+    #close-sidenav {
+        display: block;
+    }
+
+}
+
+@media only screen and (max-device-width: 600px) {
+
+    .outfit {
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 0.5%;
+    }
+
+    .outfit-part {
+        width: 90%;
+    }
+
+    .clothing-name {
+        font-size: 3vmax;
+        line-height: 3vmax;
+    }
+
 }

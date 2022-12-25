@@ -45,15 +45,15 @@ form {
     background: #00C9A7;
     text-decoration: none;
     text-align: center;
-    border-radius: 3vh;
+    border-radius: 3vmax;
 
     padding: 3%;
 
     font-family: 'Source Serif 4';
     font-style: normal;
     font-weight: 400;
-    font-size: 3vh;
-    line-height: 3vh;
+    font-size: 2.5vh;
+    line-height: 2.5vh;
 
     color: #FBEAFF;
 }
@@ -86,11 +86,6 @@ form {
     border: 5px solid black;
     border-radius: 45px;
 }
-
-.clothing-name {
-
-}
-
 
 .delete-button-form {
     width: 50%;
