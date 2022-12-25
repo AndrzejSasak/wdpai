@@ -360,15 +360,17 @@ class ClothingRepository extends Repository
 
             $stmt = $pdo->prepare('
                 DELETE FROM outfit o 
-                       WHERE id_outfit = (SELECT DISTINCT id_outfit FROM clothing_outfit co
+                       WHERE id_outfit IN (SELECT DISTINCT id_outfit FROM clothing_outfit co
                         JOIN clothing c on c.id_clothing = co.id_clothing WHERE c.image = :img_name)  
             ');
             $stmt->bindParam('img_name', $img_name, PDO::PARAM_STR);
             $stmt->execute();
 
             $stmt = $pdo->prepare('
-                DELETE FROM clothing_outfit co USING clothing c WHERE c.image = :img_name
+                DELETE FROM clothing_outfit WHERE id_outfit = (SELECT id_outfit FROM clothing_outfit co
+                JOIN clothing c on c.id_clothing = co.id_clothing WHERE c.image = :img_name)
             ');
+
             $stmt->bindParam('img_name', $img_name, PDO::PARAM_STR);
             $stmt->execute();
 
