@@ -17,9 +17,9 @@ if(!isset($_COOKIE['user'])) {
 <body>
 <div class="main-container">
     <?php include('nav.php'); ?>
-    <main>
-        <h1>Select the clothes which you want to delete.</h1>
-        <h2>Warning: deleting a piece of clothing will delete all outfits that piece is a part of.</h2>
+    <main id="delete-main">
+        <h1 class="delete-prompt">Select the clothes which you want to delete.</h1>
+        <h2 class="delete-warning">Warning: deleting a piece of clothing will delete all outfits that piece is a part of.</h2>
         <?php
         //                var_dump($allClothing);
         foreach (['Shirts', 'Jackets', 'Pants', 'Shoes','Socks', 'Accessories'] as $category) {
@@ -28,8 +28,8 @@ if(!isset($_COOKIE['user'])) {
                     ['category' => $category, 'allClothing' => $allClothing]);
             }
         } ?>
-        <form>
-            <button id="deleteButton">Delete selected pieces of clothing</button>
+        <form class="delete-button-form">
+            <button id="delete-button">Delete selected pieces of clothing</button>
         </form>
     </main>
 </div>

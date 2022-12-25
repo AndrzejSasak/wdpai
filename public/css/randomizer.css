@@ -32,8 +32,8 @@ hr {
     font-family: 'Source Serif 4';
     font-style: normal;
     font-weight: 400;
-    font-size: 2vw;
-    line-height: 2vw;
+    font-size: 3vh;
+    line-height: 3vh;
 
     color:#FBEAFF;
     text-decoration: none;
@@ -47,6 +47,7 @@ hr {
 
 #before-button, #after-button {
     margin-top: 5%;
+
 }
 
 #before-button {

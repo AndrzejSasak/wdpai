@@ -1,4 +1,5 @@
-<nav class="sidenav">
+<nav id="sidenav" class="sidenav">
+    <a href="javascript:void(0)" id="close-sidenav" onclick="closeNav()">&times;</a>
     <label class="nav-label">Your Virtual Wardrobe</label>
 
     <a href="./wardrobe">Wardrobe</a>

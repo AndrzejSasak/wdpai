@@ -8,7 +8,7 @@
                 if($clothing->getCategory()->getName() === $category) { ?>
                     <div class="clothing-part">
                         <img src="public/uploads/<?= $clothing->getImage() ?>" class="clothing-image" onclick="selectImage()">
-                        <h2><?= $clothing->getName()?></h2>
+                        <h2 class="clothing-name"><?= $clothing->getName()?></h2>
                     </div>
             <?php } } ?>
         <?php } ?>

@@ -11,6 +11,7 @@ if(!isset($_COOKIE['user'])) {
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/wardrobe.css">
+    <script type="text/javascript" src="./public/js/sidenav.js" defer></script>
     <title>Wardrobe</title>
 </head>
 <body>
@@ -18,11 +19,14 @@ if(!isset($_COOKIE['user'])) {
             <?php include('nav.php'); ?>
             <main>
                 <div class="actionButtons">
+                    <div class="hamburger-container">
+                        <img class="hamburger" src="public/img/hamburger.svg" onclick="openNav()">
+                    </div>
+<!--                    <button class="open-sidenav" onclick="openNav()">Open sidenav</button>-->
                     <a href="./addClothing">Add clothes</a>
                     <a href="./deleteClothing">Remove clothes</a>
                 </div>
                 <?php
-//                var_dump($allClothing);
                 foreach (['Shirts', 'Jackets', 'Pants', 'Shoes','Socks', 'Accessories'] as $category) {
                     if(isset($allClothing)) {
                         AppController::includeWithVariables('public/views/clothing-section.php',

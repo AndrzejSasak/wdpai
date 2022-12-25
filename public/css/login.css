@@ -41,6 +41,8 @@ h3 {
 }
 
 label {
+    align-self: flex-start;
+
     font-family: 'Source Serif 4';
     font-style: normal;
     font-weight: 400;
@@ -49,14 +51,15 @@ label {
 
     color: #FBEAFF;
 
-    margin: 1%;
-    margin-left: -50%;
+    margin-left: 12%;
+    margin-bottom: 1%;
 }
 
 label.account-question {
+    align-self: center;
+    margin: 0 0 1%;
     font-size: 2vmax;
     line-height: 2.5vmax;
-    margin: 0;
 }
 
 .login-label-container {
@@ -72,8 +75,8 @@ label.account-question {
     font-family: 'Source Serif 4';
     font-style: normal;
     font-weight: 400;
-    font-size: 1.5vmax;
-    line-height: 1.5vmax;
+    font-size: 2vmax;
+    line-height: 2vmax;
 
     color: #8B0000;
 }

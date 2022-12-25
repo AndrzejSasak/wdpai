@@ -21,11 +21,11 @@ function selectImage() {
 
 for(let i = 0; i < clothingPartItems.length; i++) {
     let item = clothingPartItems[i];
-    console.log(item);
+    console.log(item.classList);
     item.addEventListener('click', selectImage);
 }
 
-deleteButton = document.getElementById('deleteButton');
+deleteButton = document.getElementById('delete-button');
 deleteButton.addEventListener("click", function(event) {
     event.preventDefault();
 
@@ -42,5 +42,7 @@ deleteButton.addEventListener("click", function(event) {
     }).then(function (response) {
         return response.json();
     })
+
+    window.history.back();
 
 });
