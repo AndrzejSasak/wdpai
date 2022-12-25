@@ -7,7 +7,7 @@ section.clothing-upload {
 
     margin-left: 5%;
 
-    border: solid;
+    /*border: solid;*/
 }
 
 label {
@@ -23,7 +23,7 @@ label {
     margin-left: 2%;
     margin-bottom: 1%;
 
-    border: solid;
+    /*border: solid;*/
 
 }
 
@@ -33,15 +33,15 @@ input#name {
 
     border-radius: 45px;
     border: none;
-    border: solid;
+    /*border: solid;*/
 }
 
 input[type="text"] {
     font-family: 'Source Serif 4';
     font-style: normal;
     font-weight: 400;
-    font-size: 2vmax;
-    line-height: 2vmax;
+    font-size: 3vmax;
+    line-height: 3vmax;
 
     padding-left: 2%;
 
@@ -62,8 +62,8 @@ input[type="file"] {
     font-family: 'Source Serif 4';
     font-style: normal;
     font-weight: 400;
-    font-size: 3vmax;
-    line-height: 4vmax;
+    font-size: 3.5vh;
+    line-height: 4vh;
     color:#FBEAFF;
 
     display: inline-block;
@@ -72,7 +72,7 @@ input[type="file"] {
 
     margin-left: 0;
 
-    border: solid;
+    /*border: solid;*/
 }
 
 .confirm-upload {
@@ -92,7 +92,7 @@ input[type="file"] {
     border-width: 0px;
     cursor: pointer;
 
-    border: solid;
+    /*border: solid;*/
 }
 
 select {
@@ -112,7 +112,7 @@ select {
     /*color:#FBEAFF;*/
     /*appearance: none;*/
 
-    border: solid;
+    /*bord/er: solid;*/
 
 }
 
@@ -127,7 +127,7 @@ h1 {
     font-size: 3vh;
     line-height: 3vh;
     color:#FBEAFF;
-    border: solid;
+    /*border: solid;*/
 }
 
 .clothing-upload > form {
@@ -137,7 +137,7 @@ h1 {
     display: flex;
     flex-direction: column;
 
-    border: solid;
+    /*border: solid;*/
 }
 
 .nav {
@@ -150,6 +150,20 @@ h1 {
     width: 10%;
     height: 100%;
     display: none;
+}
+
+.messages {
+    margin-top: 5%;
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3vh;
+    line-height: 3vh;
+
+    text-align: center;
+
+    color:#FBEAFF;
 }
 
 @media only screen and (max-device-width: 1000px) {

@@ -93,12 +93,16 @@ class ClothingController extends AppController
     {
         $outfit = unserialize($_SESSION['outfit']);
         $this->clothingRepository->addOutfitToFavourites($outfit);
+        $this->messages[] = 'Outfit added correctly';
+        $this->render('randomizer', ['messages' => $this->messages]);
     }
 
     public function saveToAllOutfits(): void
     {
         $outfit = unserialize($_SESSION['outfit']);
         $this->clothingRepository->saveToAllOutfits($outfit);
+        $this->messages[] = 'Outfit added correctly';
+        $this->render('randomizer', ['messages' => $this->messages]);
     }
 
     private function isValidated(array $file) : bool

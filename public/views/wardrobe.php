@@ -12,6 +12,7 @@ if(!isset($_COOKIE['user'])) {
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/wardrobe.css">
     <script type="text/javascript" src="./public/js/sidenav.js" defer></script>
+    <script type="text/javascript" src="./public/js/current-page.js" defer></script>
     <title>Wardrobe</title>
 </head>
 <body>

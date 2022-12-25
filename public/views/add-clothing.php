@@ -33,12 +33,6 @@
                     <div class="empty-placeholder"></div>
                 </div>
                 <form action="addClothing" method="POST" enctype="multipart/form-data">
-                    <?php if(isset($messages)) {
-                        foreach ($messages as $message) {
-                            echo $message;
-                        }
-                    }
-                    ?>
                     <label>Name</label>
                     <input id="name" name="name" type="text">
                     <select name="category">
@@ -55,6 +49,16 @@
 
 <!--                    <input type="file" name="file">-->
                     <button class="confirm-upload" type="submit">Add clothing</button>
+
+                    <div class="messages">
+                        <?php if(isset($messages)) {
+                            foreach ($messages as $message) {
+                                echo $message;
+                            }
+                        }
+                        ?>
+                    </div>
+
                 </form>
             </section>
 

@@ -17,7 +17,7 @@ hr {
     justify-content: space-around;
     margin: 5%;
 
-    border: solid;
+    /*border: solid;*/
 }
 
 .buttons {
@@ -30,13 +30,15 @@ hr {
 
     padding-top: 2%;
 
-    border: solid;
+    /*border: solid;*/
 }
 
 .hamburger-container, .empty-placeholder {
     width: 10%;
     height: 100%;
     display: none;
+
+    padding-left: 5%;
 }
 
 .submitButtonForm {
@@ -45,7 +47,7 @@ hr {
 
     justify-self: center;
 
-    border: solid;
+    /*border: solid;*/
 }
 
 .submitButton {
@@ -69,7 +71,7 @@ hr {
     border-width: 0;
     cursor: pointer;
 
-    border: solid
+    /*border: solid*/
 }
 
 #before-button {
@@ -78,6 +80,22 @@ hr {
 
 #after-button {
     height: 100%;
+}
+
+.messages {
+    margin-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3vh;
+    line-height: 3vh;
+
+    text-align: center;
+
+    color:#FBEAFF;
 }
 
 @media only screen and (max-width: 1000px) {

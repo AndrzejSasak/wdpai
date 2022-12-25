@@ -11,6 +11,7 @@ if(!isset($_COOKIE['user'])) {
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/picker.css">
+    <script type="text/javascript" src="./public/js/current-page.js" defer></script>
     <title>Picker</title>
 </head>
 <body>

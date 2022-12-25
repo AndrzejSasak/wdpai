@@ -1,6 +1,8 @@
 .hamburger-container {
     height: 100%;
     display: none;
+
+    padding-left: 5%;
 }
 
 .nav {
@@ -10,7 +12,7 @@
     flex-direction: row;
     justify-content: center;
 
-    border: solid;
+    /*border: solid;*/
 }
 
 .empty-placeholder {
