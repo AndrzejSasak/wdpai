@@ -16,8 +16,8 @@ label {
     font-family: 'Source Serif 4';
     font-style: normal;
     font-weight: 400;
-    font-size: 2vw;
-    line-height: 2vw;
+    font-size: 5vh;
+    line-height: 5vh;
     color:#FBEAFF;
 
     margin-left: 2%;
@@ -29,11 +29,23 @@ label {
 
 input#name {
     width: 50%;
-    height: 50%;
+    height: 10%;
 
     border-radius: 45px;
     border: none;
     border: solid;
+}
+
+input[type="text"] {
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vmax;
+    line-height: 2vmax;
+
+    padding-left: 2%;
+
+    background: #FBEAFF;
 }
 
 input[type="file"] {
@@ -41,9 +53,18 @@ input[type="file"] {
 }
 
 .upload-file {
+    width: 50%;
+
     background: #00C9A7;
-    border-radius: 45px;
+    border-radius: 2vmax;
     border: none;
+
+    font-family: 'Source Serif 4';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3vmax;
+    line-height: 4vmax;
+    color:#FBEAFF;
 
     display: inline-block;
     padding: 6px 12px;
@@ -51,36 +72,39 @@ input[type="file"] {
 
     margin-left: 0;
 
+    border: solid;
 }
 
 .confirm-upload {
     width: 50%;
-    height: 30%;
+    height: 25%;
 
     font-family: 'Source Serif 4';
     font-style: normal;
     font-weight: 400;
-    font-size: 2vw;
-    line-height: 2vw;
+    font-size: 3vmax;
+    line-height: 3vmax;
     color:#FBEAFF;
 
     background: #00C9A7;
-    border-radius: 2vw;
+    border-radius: 2vmax;
 
     border-width: 0px;
     cursor: pointer;
+
+    border: solid;
 }
 
-.category {
-    width: 20%;
+select {
+    width: 50%;
 
     font-family: 'Source Serif 4';
     font-style: normal;
     font-weight: 400;
-    font-size: 2vw;
-    line-height: 2vw;
+    font-size: 4vh;
+    line-height: 4vh;
 
-    border-radius: 45px;
+    border-radius: 2vmax;
     padding: 1%;
     margin-top: 1%;
     margin-bottom: 1%;
@@ -95,18 +119,81 @@ input[type="file"] {
 
 h1 {
     width: 100%;
-    height: 10%;
+    height: 50%;
 
     font-family: 'Source Serif 4';
     font-style: normal;
     font-weight: 400;
-    font-size: 2vw;
-    line-height: 2vw;
+    font-size: 3vh;
+    line-height: 3vh;
     color:#FBEAFF;
     border: solid;
 }
 
 .clothing-upload > form {
+    width: 100%;
+    height: 100%;
+
     display: flex;
     flex-direction: column;
+
+    border: solid;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.hamburger-container, .empty-placeholder {
+    width: 10%;
+    height: 100%;
+    display: none;
+}
+
+@media only screen and (max-device-width: 1000px) {
+
+    .hamburger-container {
+        display: block;
+    }
+
+    .empty-placeholder {
+        display: block;
+    }
+
+}
+
+@media only screen and (max-device-width: 600px) {
+
+    section.clothing-upload {
+        width: 90%;
+    }
+
+    input#name, .upload-file, select, .confirm-upload {
+        margin-top: 2%;
+        width: 100%;
+    }
+
+    input#name {
+        width: 98%;
+    }
+
+    .upload-file {
+        width: 97%;
+    }
+
+    .upload-file {
+        /*color: #FBEAFF;*/
+        /*background: #00C9A7;*/
+    }
+
+    select {
+        color: #FBEAFF;
+        background: #00C9A7;
+    }
+
+    .confirm-upload {
+    }
+
 }

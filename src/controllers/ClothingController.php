@@ -43,7 +43,7 @@ class ClothingController extends AppController
 
         if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->isValidated($_FILES['file'])) {
 
-            var_dump($_POST['category']);
+//            var_dump($_POST['category']);
             $clothing = new Clothing($_POST['name'], new Category($_POST['category']), $_FILES['file']['name']);
             $updatedFilename = $this->clothingRepository->addClothing($clothing);
 

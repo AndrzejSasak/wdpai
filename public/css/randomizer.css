@@ -11,16 +11,41 @@ hr {
 
 .afterRandomButtons {
     min-height: 10%;
-    width: 50%;
+    width: 80%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     margin: 5%;
+
+    border: solid;
+}
+
+.buttons {
+    width: 100%;
+    height: 10%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    padding-top: 2%;
+
+    border: solid;
+}
+
+.hamburger-container, .empty-placeholder {
+    width: 10%;
+    height: 100%;
+    display: none;
 }
 
 .submitButtonForm {
     width: 40%;
     height: 100%;
+
+    justify-self: center;
+
+    border: solid;
 }
 
 .submitButton {
@@ -28,6 +53,7 @@ hr {
     height: 100%;
 
     padding: 1%;
+
 
     font-family: 'Source Serif 4';
     font-style: normal;
@@ -39,21 +65,33 @@ hr {
     text-decoration: none;
     text-align: center;
     background: #00C9A7;
-    border-radius: 2vw;
-    border-width: 0px;
+    border-radius: 2vh;
+    border-width: 0;
     cursor: pointer;
-}
 
-
-#before-button, #after-button {
-    margin-top: 5%;
-
+    border: solid
 }
 
 #before-button {
-    height: 10%;
+    height: 100%;
 }
 
 #after-button {
     height: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .buttons {
+        justify-content: space-between;
+    }
+
+    .hamburger-container {
+        display: flex;
+    }
+
+    .empty-placeholder {
+        display: block;
+    }
+
 }

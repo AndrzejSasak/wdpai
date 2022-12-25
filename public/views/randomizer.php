@@ -11,6 +11,7 @@ if(!isset($_COOKIE['user'])) {
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/randomizer.css">
+    <script type="text/javascript" src="./public/js/sidenav.js" defer></script>
     <title>Randomizer</title>
 </head>
 
@@ -22,15 +23,25 @@ if(!isset($_COOKIE['user'])) {
 
         <main class="outfits-main">
 
-            <form action="randomizeOutfit" method="POST" class="submitButtonForm">
-                <?php if(isset($randomizedOutfit)) { ?>
-                    <button id="after-button" class="submitButton">Choose my outfit</button>
-                <?php } else { ?>
-                    <button id="before-button" class="submitButton">Choose my outfit</button>
-                <?php } ?>
-            </form>
 
-            <hr>
+            <div class="buttons">
+                <div class="hamburger-container">
+                    <img class="hamburger" src="public/img/hamburger.svg" onclick="openNav()">
+                </div>
+
+                <form action="randomizeOutfit" method="POST" class="submitButtonForm">
+                    <?php if(isset($randomizedOutfit)) { ?>
+                        <button id="after-button" class="submitButton">Choose my outfit</button>
+                    <?php } else { ?>
+                        <button id="before-button" class="submitButton">Choose my outfit</button>
+                    <?php } ?>
+                </form>
+
+                <div class="empty-placeholder">
+                </div>
+            </div>
+
+
 
             <?php if(isset($randomizedOutfit)) { ?>
             <h1 class="prompt">Your outfit for the day is:</h1>

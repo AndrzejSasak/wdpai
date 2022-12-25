@@ -10,7 +10,8 @@ if(!isset($_COOKIE['user'])) {
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
-    <link rel="stylesheet" type="text/css" href="public/css/favourites.css">
+    <link rel="stylesheet" type="text/css" href="public/css/outfits.css">
+    <script type="text/javascript" src="./public/js/sidenav.js" defer></script>
     <title>Favourites</title>
 </head>
 
@@ -22,7 +23,13 @@ if(!isset($_COOKIE['user'])) {
     
         <main class="outfits-main">
 
-            <h1 class="prompt">Your favourite outfits are:</h1>
+            <div class="nav">
+                <div class="hamburger-container">
+                    <img class="hamburger" src="public/img/hamburger.svg" onclick="openNav()">
+                </div>
+                <h1 class="prompt">Your favourite outfits are:</h1>
+                <div class="empty-placeholder"></div>
+            </div>
 
             <?php
             if(isset($favouriteOutfits)) {

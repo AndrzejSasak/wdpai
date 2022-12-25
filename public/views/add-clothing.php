@@ -11,6 +11,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/add-clothing.css">
+    <script type="text/javascript" src="./public/js/sidenav.js" defer></script>
     <title>Add clothing</title>
 
 </head>
@@ -23,7 +24,14 @@
         <main>
 
             <section class="clothing-upload">
-                <h1>Upload photo</h1>
+
+                <div class="nav">
+                    <div class="hamburger-container">
+                        <img class="hamburger" src="public/img/hamburger.svg" onclick="openNav()">
+                    </div>
+                    <h1>Upload photo</h1>
+                    <div class="empty-placeholder"></div>
+                </div>
                 <form action="addClothing" method="POST" enctype="multipart/form-data">
                     <?php if(isset($messages)) {
                         foreach ($messages as $message) {
@@ -33,7 +41,7 @@
                     ?>
                     <label>Name</label>
                     <input id="name" name="name" type="text">
-                    <select class="category" name="category">
+                    <select name="category">
                         <?php
                         $categories = ['Shirts', 'Jackets', 'Pants', 'Shoes', 'Socks', 'Accessories'];
                         foreach ($categories as $category) { ?>

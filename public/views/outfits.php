@@ -10,8 +10,8 @@ if(!isset($_COOKIE['user'])) {
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
-    <link rel="stylesheet" type="text/css" href="public/css/favourites.css">
-<!--    TODO: change css file-->
+    <link rel="stylesheet" type="text/css" href="public/css/outfits.css">
+    <script type="text/javascript" src="./public/js/sidenav.js" defer></script>
     <title>Outfits</title>
 </head>
 
@@ -23,11 +23,16 @@ if(!isset($_COOKIE['user'])) {
 
     <main class="outfits-main">
 
-        <h1 class="prompt">Here are your outfits:</h1>
+        <div class="nav">
+            <div class="hamburger-container">
+                <img class="hamburger" src="public/img/hamburger.svg" onclick="openNav()">
+            </div>
+            <h1 class="prompt">Here are your outfits:</h1>
+            <div class="empty-placeholder"></div>
+        </div>
 
         <?php
         if(isset($allOutfits)) {
-//            var_dump($allOutfits);
             foreach($allOutfits as $outfit) {
                 AppController::includeWithVariables('public/views/outfit.php',
                     ['outfit' => $outfit]);
