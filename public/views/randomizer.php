@@ -43,7 +43,6 @@ if(!isset($_COOKIE['user'])) {
             </div>
 
 
-
             <?php if(isset($randomizedOutfit)) { ?>
             <h1 class="prompt">Your outfit for the day is:</h1>
             <?php AppController::includeWithVariables('public/views/outfit.php',

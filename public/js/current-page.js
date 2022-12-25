@@ -7,7 +7,7 @@ function restyle(link) {
     link.style.boxShadow = "0px 4px 4px rgba(0, 0, 0, 0.25)";
 }
 
-if(docname === "wardrobe") {
+if(docname === "wardrobe" || docname === "deleteClothing" || docname === "addClothing") {
     const link = document.getElementById("wardrobeLink");
     restyle(link);
 } else if (docname === "randomizer") {

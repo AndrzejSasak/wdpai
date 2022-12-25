@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/add-clothing.css">
     <script type="text/javascript" src="./public/js/sidenav.js" defer></script>
+    <script type="text/javascript" src="./public/js/current-page.js" defer></script>
     <title>Add clothing</title>
 
 </head>
