@@ -24,13 +24,4 @@ class DefaultController extends AppController {
         $this->render('outfits');
     }
 
-    private function checkUserIsLoggedIn() {
-        $this->checkUserIsLoggedIn();
-        if(!$_SESSION['id_user'] == null) {
-            $url = "http://$_SERVER[HTTP_HOST]";
-            header("Location: {$url}/index");
-//            die();
-        }
-    }
-
 }
