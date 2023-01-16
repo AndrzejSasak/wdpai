@@ -37,8 +37,8 @@ class UserRepository extends Repository
 
         $stmt = $this->database->connect()->prepare('
             WITH IDENTITY AS ( INSERT INTO user_details(name, surname) VALUES(?, ?) RETURNING id_user_details )
-            INSERT INTO _user (email, password, enabled, salt, created_at, id_user_details, id_role)
-            VALUES (?, ?, True, \'123\', NOW(), (SELECT id_user_details FROM IDENTITY), 2)
+            INSERT INTO _user (email, password, enabled, created_at, id_user_details, id_role)
+            VALUES (?, ?, True, NOW(), (SELECT id_user_details FROM IDENTITY), 2)
         ');
 
         $stmt->execute([
