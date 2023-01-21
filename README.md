@@ -9,6 +9,7 @@
 
 ## General info
 - Take photos of your clothes and upload them
+- Add and remove pieces of clothing
 - Compose outfits
 - View your pieces of clothing and outfits
 
@@ -23,4 +24,8 @@
 ![Login](./img/login.png)
 ![Wardrobe](./img/wardrobe.png)
 ![Randomizer](./img/randomizer.png)
+
 ## Usage
+- Enter your IPv4 address in the config.php file
+- Create the container with ```docker compose up```
+- Access the app at ```http://localhost:8080/index```
