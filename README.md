@@ -22,4 +22,5 @@
 ## Screenshots
 ![Login](./img/login.png)
 ![Wardrobe](./img/wardrobe.png)
+![Randomizer](./img/randomizer.png)
 ## Usage
